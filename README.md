@@ -1,9 +1,8 @@
 # 2
 # React + Vite Flashcard Quiz Game
 
------------------------------------------------------------------
-
 **Major NPM's:** react, react-dom, react-icons
+
 **Functionalities:** 
 - User can enter to play quiz games by entering their names. 
 - There are multiple topics to start quiz with.
