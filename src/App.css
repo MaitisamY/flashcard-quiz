@@ -1,0 +1,530 @@
+/* COLORS-> Dark: #292916 , Light: #fff000 */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rowdies&display=swap');
+
+@keyframes SlideIn {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+}
+
+@keyframes SlideOut {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #292916;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+#login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#intro {
+    text-align: center;
+    padding: 20px;
+}
+
+#intro h1 {
+    font-size: 36px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #fff000;
+    text-transform: uppercase;
+}
+
+#name-getter {
+    width: auto;
+    height: auto;
+    padding: 30px;
+    font-size: 30px;
+    text-align: center;
+    background-color: #fff000;
+    color: #292916;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    box-shadow: 0 0 10px #fff000;
+}
+
+#name-getter input, 
+#name-getter input:hover, 
+#name-getter input:focus, 
+#name-getter input:active {
+    display: block;
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: transparent;
+    color: #292916;
+    border: 2px solid #292916;
+    outline: none;
+    place-self: center;
+    border-radius: 10px;
+}
+
+#name-getter button {
+    display: block;
+    width: 100%;
+    margin: 10px 0 20px 0;
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: transparent;
+    color: #292916;
+    border: 2px solid #292916;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#name-getter button:hover {
+    background-color: #292916;
+    color: #fff000;
+    border: 2px solid #292916;
+    transition: 0.5s;
+}
+
+#name-getter a {
+    text-decoration: underline;
+    color: #3a3a26;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#name-getter a:hover {
+    color: #292916;
+    transition: 0.5s;
+}
+
+#fixed-footer {
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
+    color: #fff000;
+    font-size: 18px;
+    font-family: 'Rowdies', sans-serif;
+}
+
+#terms {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    backdrop-filter: blur(1px);
+    background-color: transparent; 
+    animation: SlideIn ease-in-out;
+    animation-duration: 0.5s;
+}
+
+#content {
+    position: relative;
+    margin-top: 30px;
+    background-color: #fff000;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #fff000;
+    overflow-y: auto;
+}
+
+#content h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #292916;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+#content li {
+    margin: 10px 0;
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #292916;
+    padding: 5px;
+}
+
+#content a {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #3a3a26;
+    color: #fff000;
+    padding: 6px 12px;
+    border-radius: 50px 50px;
+    text-decoration: none;
+    font-family: 'Rowdies', sans-serif;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#content a:hover {
+    background-color: #292916;
+}
+
+header {
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #292916;
+    padding: 10px 30px;
+}
+
+header h1 {
+    font-size: 20px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #fff000;
+    text-transform: uppercase;
+}
+
+header ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+header li {
+    font-family: 'Rowdies', sans-serif;
+    text-transform: uppercase;
+    color: #fff000;
+}
+
+header li a, header li a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+main {
+    min-height: 75vh;
+    height: auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main h1 {
+    font-size: 25px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #fff000;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 40px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #fff000;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    text-align: center;
+}
+
+main h5 {
+    font-size: 25px;
+    color: #fff000;
+    font-family: 'Rowdies', sans-serif;
+}
+
+main #timer {
+    width: auto;
+    font-size: 20px;
+    color: #292916;
+    background-color: #fff000;
+    border-radius: 10px;
+    font-family: 'Rowdies', sans-serif;
+    padding: 20px;
+    text-align: center;
+}
+
+#topics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 30px;
+    height: auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#topics .topic {
+    width: 400px;
+    height: auto;
+    background-color: #fff000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    padding: 20px;
+    transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#topics .topic:hover {
+    cursor: pointer;
+    transform: scale(1.08);
+}
+
+#topics .topic h3 {
+    font-size: 25px;
+    font-family: 'Rowdies', sans-serif;
+}
+
+#topics .topic p {
+    font-size: 25px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+#tag-holder {
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#tag-holder .tags {
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Rowdies', sans-serif;
+    font-size: 18px;
+}
+
+#tag-holder .tags.blue {
+    background-color: #000FFF;
+    color: #fff000;
+}
+
+#tag-holder .tags.yellow {
+    background-color: #FFF000;
+    color: #000FFF;
+}
+
+#flashcard {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+    width: 50%;
+    background-color: #fff000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    padding: 20px;
+    margin-top: 30px;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out; /* Adjust the duration and easing as needed */
+}
+
+#flashcard.loading {
+    opacity: 0.5; 
+    pointer-events: none;
+}
+
+#loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#flashcard.hidden {
+    opacity: 0;
+    pointer-events: none; /* Optional: Disable interactions when hidden */
+}
+
+#flashcard h4 {
+    font-size: 25px;
+    color: #292916;
+    font-family: 'Rowdies', sans-serif;
+}
+
+#flashcard label {
+    font-size: 25px;
+    color: #292916;
+    font-family: 'Bebas Neue', sans-serif;
+    cursor: pointer;
+}
+
+#flashcard input[type="radio"] {
+    cursor: pointer;
+}
+
+#controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+    width: 90%;
+}
+
+#controls button {
+    font-size: 20px;
+    font-family: 'Rowdies', sans-serif;
+    background-color: #000FFF;
+    color: #fff000;
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#controls button:hover {
+    background-color: rgba(0, 15, 255, 0.8);
+}
+
+#no-flashcards {
+    font-size: 20px;
+    font-family: 'Rowdies', sans-serif;
+    color: #fff;
+}
+
+#timesUp {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    backdrop-filter: blur(1px);
+    background-color: transparent;
+    animation: SlideIn ease-in-out;
+    animation-duration: 0.5s;
+}
+
+#timeout-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    width: 40%;
+    background-color: #fff000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    padding: 20px;
+    margin-top: 30px;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out; /* Adjust the duration and easing as needed */
+}
+
+#timeout-view h4 {
+    font-size: 25px;
+    color: #292916;
+    font-family: 'Rowdies', sans-serif;
+}
+
+#timeout-view button {
+    display: block;
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: transparent;
+    color: #292916;
+    border: 2px solid #292916;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px 20px 2px 20px;
+}
+
+#timeout-view button:hover {
+    background-color: #3a3a26;
+    color: #fff000;
+    border: 2px solid #3a3a26;
+    transition: 0.5s;
+}
+
+#result-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    height: auto;
+    width: 30%;
+    background-color: #fff000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    padding: 20px;
+    margin-top: 30px;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out; /* Adjust the duration and easing as needed */
+}
+
+#result-view h4 {
+    font-size: 25px;
+    color: #292916;
+    font-family: 'Rowdies', sans-serif;
+}
+
+#result-view button {
+    display: block;
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: transparent;
+    color: #292916;
+    border: 2px solid #292916;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px 20px 2px 20px;
+}
+
+#result-view button:hover {
+    background-color: #3a3a26;
+    color: #fff000;
+    border: 2px solid #3a3a26;
+    transition: 0.5s;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    color: #fff000;
+    font-size: 18px;
+    padding: 20px 0;
+    font-family: 'Rowdies', sans-serif;
+}
