@@ -482,7 +482,7 @@ main #timer {
     justify-content: space-around;
     align-items: start;
     height: auto;
-    width: 30%;
+    width: auto;
     background-color: #fff000;
     border-radius: 10px;
     box-shadow: 0 0 10px #000;
@@ -496,6 +496,38 @@ main #timer {
     font-size: 25px;
     color: #292916;
     font-family: 'Rowdies', sans-serif;
+}
+
+#result-view table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#result-view table th {
+    padding: 10px;
+    border-bottom: 1px solid rgba(41, 41, 22, 0.2);
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Rowdies', sans-serif;
+}
+
+#result-view table td {
+    padding: 10px;
+    border-right: 1px solid rgba(41, 41, 22, 0.2);
+    border-bottom: 1px solid rgba(41, 41, 22, 0.2);
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Rowdies', sans-serif;
+}
+
+#result-view table td:last-child {
+    border-right: none;
+    border-bottom: none;
+}
+
+#result-view table td:first-child {
+    border-left: 1px solid rgba(41, 41, 22, 0.2);
 }
 
 #result-view button {

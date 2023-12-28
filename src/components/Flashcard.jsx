@@ -91,11 +91,25 @@ export default function Flashcard({ flashcards, timer, handleLeaveQuiz }) {
         result ? (
           <div id="timesUp">
             <div id="result-view">
-                <h4>Total questions: {10}</h4>
-                <h4>Correct answers: {score}</h4>
-                <h4>Wrong / not attempted answers: {10 - score}</h4>
-                <h4>Accuracy: {(score / 10) * 100}%</h4>
-                <button onClick={handleLeaveQuiz}>Exit</button>
+              <table>
+                <thead>
+                  <tr>
+                    <th><h4>Total questions</h4></th>
+                    <th><h4>Correct answers</h4></th>
+                    <th><h4>Wrong / not attempted answers</h4></th>
+                    <th><h4>Accuracy</h4></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><h4>{10}</h4></td>
+                    <td><h4>{score}</h4></td>
+                    <td><h4>{10 - score}</h4></td>
+                    <td><h4>{(score / 10) * 100}%</h4></td>
+                    <td><button onClick={handleLeaveQuiz}>Exit</button></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         ) : (
