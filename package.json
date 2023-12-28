@@ -25,6 +25,7 @@
     "vite": "^5.0.0"
   },
   "description": "Flashcard Quiz Application with React and Vite",
+  "main": "vite.config.js",
   "keywords": [],
   "author": "Aitisam Yaseen",
   "license": "ISC"

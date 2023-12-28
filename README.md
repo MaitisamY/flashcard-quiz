@@ -1,6 +1,8 @@
 # 2
 # React + Vite Flashcard Quiz Game
 
+Flashcard quiz with multiple option answer selection and minor animations.
+
 **Major NPM's:** react, react-dom, react-icons
 
 **Functionalities:** 
@@ -9,4 +11,4 @@
 - 10:00 minutes timer for every quiz
 - Username, topic and timer are stored in localstorage.
 
-**This is the second of the many projects for my portfolio**
+# This is the second of the many projects for my portfolio
