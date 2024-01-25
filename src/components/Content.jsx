@@ -16,7 +16,7 @@ export default function Content({
             {
                 info && (
                     <div id="info" onClick={handleOutsideClick}>
-                    <div id="content">
+                    <div id="content-with-border">
                         <a onClick={handleInfoClick}>X</a>
                         <h1>Info</h1>
                         <ol>

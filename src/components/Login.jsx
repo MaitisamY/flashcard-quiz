@@ -1,6 +1,23 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react'
 import Icon from '../assets/logo.png'
-export default function Login({ terms, handleNameSubmit, handleTermsSubmit, handleOutsideClick }) {
+export default function Login({ 
+    userName,
+    userNameError,
+    terms, 
+    handleNameSubmit, 
+    handleTermsSubmit, 
+    handleOutsideClick 
+}) {
+    const [user, setUser] = useState(userName);
+    
+    const handleUsenameChange = (e) => {
+        const name = e.target.value;
+        setUser(name);
+    }
+
+    
+
     return (
         <div id="login">
             <div id="intro">
@@ -10,8 +27,9 @@ export default function Login({ terms, handleNameSubmit, handleTermsSubmit, hand
             <form id="name-getter" onSubmit={handleNameSubmit}>
                 <label>
                   Enter your name
-                  <input type="text" name="name" required />
+                  <input type="text" name="name" value={user} onChange={handleUsenameChange} />
                 </label>
+                {userNameError && <p>{userNameError}</p>}
                 <button type="submit">Submit</button>
                 <a onClick={handleTermsSubmit}>Terms of use</a>
             </form>

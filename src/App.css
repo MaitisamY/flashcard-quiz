@@ -77,6 +77,17 @@ body {
     border-radius: 10px;
 }
 
+#name-getter p {
+    font-size: 14px;
+    color: red;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    margin-top: 5px;
+    place-self: center;
+    text-transform: uppercase;
+    letter-spacing: normal;
+}
+
 #name-getter button {
     display: block;
     width: 100%;
@@ -152,8 +163,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 1;
-    backdrop-filter: blur(1px);
+    z-index: 9999;
+    backdrop-filter: blur(2.5px);
     background-color: transparent; 
     animation: SlideIn ease-in-out;
     animation-duration: 0.5s;
@@ -167,6 +178,17 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px #fff000;
     overflow-y: auto;
+}
+
+#content-with-border {
+    position: relative;
+    margin-top: 30px;
+    background-color: #fff000;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #fff000;
+    overflow-y: auto;
+    border: 2px solid #292916;
 }
 
 #content h1 {
@@ -202,6 +224,42 @@ body {
 }
 
 #content a:hover {
+    background-color: #292916;
+}
+
+#content-with-border h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #292916;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+#content-with-border li {
+    margin: 10px 0;
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #292916;
+    padding: 5px;
+}
+
+#content-with-border a {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #3a3a26;
+    color: #fff000;
+    padding: 6px 12px;
+    border-radius: 50px 50px;
+    text-decoration: none;
+    font-family: 'Rowdies', sans-serif;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#content-with-border a:hover {
     background-color: #292916;
 }
 
@@ -255,6 +313,8 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 main h1 {
@@ -320,6 +380,7 @@ main #timer {
 }
 
 #topics .topic {
+    position: relative;
     width: 400px;
     height: auto;
     background-color: #fff000;
@@ -364,14 +425,41 @@ main #timer {
     }
 }
 
-#tag {
-    width: fit-content;
-    padding: 5px 15px;
-    border-radius: 10px;
-    font-family: 'Rowdies', sans-serif;
-    font-size: 14px;
+#tag-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1.5px);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0 0 0;
+}
+
+#tag-container span {
+    font-size: 20px;
+    font-family: "Rowdies", sans-serif;
     background-color: #000FFF;
     color: #fff000;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+#tag {
+    position: absolute;
+    top: -26px;
+    right: -1px;
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 0 10px 0 10px;
+    font-family: 'Rowdies', sans-serif;
+    font-size: 20px;
+    background-color: #000FFF;
+    color: #fff000;
+    z-index: 2;
 }
 
 #flashcard {
@@ -428,10 +516,12 @@ main #timer {
     color: #292916;
     font-family: 'Bebas Neue', sans-serif;
     cursor: pointer;
+    margin: 10px 0 10px 10px;
 }
 
 #flashcard input[type="radio"] {
     cursor: pointer;
+    margin: 10px 0 10px 0;
 }
 
 #controls {
@@ -472,7 +562,10 @@ main #timer {
 #no-flashcards {
     font-size: 20px;
     font-family: 'Rowdies', sans-serif;
-    color: #fff;
+    color: #fff000;
+    background-color: #000FFF;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 #timesUp {

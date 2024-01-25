@@ -1,13 +1,16 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-prototype-builtins */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 
-export default function Flashcard({ flashcards, timer, handleLeaveQuiz, handleResultData }) {
+export default function Flashcard({ flashcards, timer, handleResultData }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [result, setResult] = useState(false);
   const [score, setScore] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const currentFlashcard = flashcards[currentIndex];
+  const [count, setCount] = useState(1);
   const handleAnswerClick = (questionId, selectedIndex) => {
     setSelectedAnswers((prevSelectedAnswers) => ({
       ...prevSelectedAnswers,
@@ -17,14 +20,15 @@ export default function Flashcard({ flashcards, timer, handleLeaveQuiz, handleRe
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => prevIndex + 1);
+    setCount((prevCount) => prevCount + 1);
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) => prevIndex - 1);
+    setCount((prevCount) => prevCount - 1);
   };
 
   const handleSubmit = () => {
-    const totalQuestions = flashcards.length;
     let correctAnswers = 0;
   
     // Create a copy of selectedAnswers to avoid mutating state directly
@@ -52,10 +56,7 @@ export default function Flashcard({ flashcards, timer, handleLeaveQuiz, handleRe
       }
     });
   
-    // Calculate the score
     setScore(correctAnswers);
-  
-    // Update the state with the result
     setResult(true);
   };
   
@@ -74,6 +75,16 @@ export default function Flashcard({ flashcards, timer, handleLeaveQuiz, handleRe
       setIsVisible(true);
     }, 500); // Adjust the delay to match the transition duration
   };
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  const shuffledQuestions = shuffleArray(currentFlashcard.answers);
 
   return (
     <>
@@ -115,7 +126,7 @@ export default function Flashcard({ flashcards, timer, handleLeaveQuiz, handleRe
         ) : (
           <>
           <div id="flashcard" className={isVisible ? '' : 'hidden'}>
-            <h4>Q.{currentFlashcard.id}- {currentFlashcard.question}</h4>
+            <h4>Q.{count}- {currentFlashcard.question}</h4>
             {currentFlashcard.answers.map((answer, index) => (
               <div key={index}>
                 <input

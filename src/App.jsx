@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
-import { useAppFunctions } from './AppFunctions';
+import { useAppFunctions } from './AppFunctions'
 import Login from './components/Login'
 import Content from './components/Content'
 import Topic from './components/Topic'
 import TOPICS_DATA from "./data/topics"
 import QUESTIONS from './data/questions'
-import Flashcard from './components/Flashcard';
-import Loader from './assets/loading.gif';
+import Flashcard from './components/Flashcard'
+import Loader from './assets/loading.gif'
 import './App.css'
 
 export default function App() {
   const {
     userName,
+    userNameError,
     showContent,
     terms,
     info,
@@ -94,6 +94,8 @@ export default function App() {
             )
           ) : (
             <Login
+              userName={userName}
+              userNameError={userNameError}
               terms={terms}
               handleNameSubmit={handleNameSubmit}
               handleTermsSubmit={handleTermsSubmit}

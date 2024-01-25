@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 export function useAppFunctions() {
   const [userName, setUserName] = useState('');
+  const [userNameError, setUsernameError] = useState(null);
   const [showContent, setShowContent] = useState(false);
   const [terms, setTerms] = useState(false);
   const [topic, setTopic] = useState('');
@@ -47,12 +48,19 @@ export function useAppFunctions() {
   useEffect(() => {
     const storedUserName = localStorage.getItem('userName');
     const storedTopic = localStorage.getItem('topic');
+    const storedResultData = JSON.parse(localStorage.getItem('resultData')) || [];
+    
+    if(storedResultData.length > 0) {
+      setResultData(storedResultData);
+    }
 
     if (storedUserName && !storedTopic) {
       setUserName(storedUserName);
       setShowContent(true);
+      setUsernameError(null);
     } else if (storedUserName && storedTopic) {
       setUserName(storedUserName);
+      setUsernameError(null);
       setShowContent(true);
       setTopic(storedTopic);
       setSubject(true);
@@ -71,26 +79,34 @@ export function useAppFunctions() {
   }, []);
 
   const startTimer = () => {
-    setMinutes(1);
+    setMinutes(10);
     setSeconds(0);
     setTimesUp(false);
   };
 
   const handleNameSubmit = (e) => {
-    setIsLoading(true);
+    e.preventDefault();
+    const enteredName = e.target.elements.name.value;
+    if (enteredName === '') {
+        setUsernameError('Please enter your name!')
+    } else if (enteredName.length < 6) {
+      setUsernameError('Must be 6 characters long!');
+    } else {
+        setUsernameError(null);
+        setIsLoading(true);
 
-    const loadingTimeout = setTimeout(() => {
-      setIsLoading(false);
+        const loadingTimeout = setTimeout(() => {
+          setIsLoading(false);
 
-      const enteredName = e.target.elements.name.value;
-      localStorage.setItem('userName', enteredName);
-      setUserName(enteredName);
-      setShowContent(true);
-    }, 1500);
+          localStorage.setItem('userName', enteredName);
+          setUserName(enteredName);
+          setShowContent(true);
+        }, 1500);
 
-    return () => {
-      clearTimeout(loadingTimeout);
-    };
+        return () => {
+          clearTimeout(loadingTimeout);
+        };
+    }
   };
 
   const handleTermsSubmit = () => {
@@ -163,7 +179,16 @@ export function useAppFunctions() {
       score,
       topic,
     };
-    setResultData([...resultData, result]);
+
+    // Update state
+    setResultData((prevResultData) => [...prevResultData, result]);
+
+    // Update local storage
+    const storedResultData = JSON.parse(localStorage.getItem('resultData')) || [];
+    const updatedStoredResultData = [...storedResultData, result];
+    localStorage.setItem('resultData', JSON.stringify(updatedStoredResultData));
+
+    // Continue with the rest of your logic
     setIsLoading(true);
 
     const loadingTimeout = setTimeout(() => {
@@ -179,10 +204,11 @@ export function useAppFunctions() {
     return () => {
       clearTimeout(loadingTimeout);
     };
-  }
+  };
 
   return {
     userName,
+    userNameError,
     showContent,
     terms,
     info,
