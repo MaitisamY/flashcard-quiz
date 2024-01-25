@@ -84,7 +84,7 @@ export default function Flashcard({ flashcards, timer, handleResultData }) {
     return array;
   }
 
-  const shuffledQuestions = shuffleArray(currentFlashcard.answers);
+  const shuffledQuestions = shuffleArray(currentFlashcard);
 
   return (
     <>
