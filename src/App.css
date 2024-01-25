@@ -672,7 +672,7 @@ main #timer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: start;
+    align-items: center;
     height: auto;
     width: 60%;
     box-sizing: border-box;
@@ -683,6 +683,16 @@ main #timer {
     margin-top: 30px;
     opacity: 1;
     transition: opacity 500ms ease-in-out; /* Adjust the duration and easing as needed */
+}
+
+#result-view h2 {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #292916;
+    text-transform: uppercase;
+    padding: 20px 0;
 }
 
 #result-view h4 {

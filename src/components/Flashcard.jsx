@@ -102,6 +102,7 @@ export default function Flashcard({ flashcards, timer, handleResultData }) {
         result ? (
           <div id="timesUp">
             <div id="result-view">
+              <h2>Result</h2>
               <table>
                 <thead>
                   <tr>
