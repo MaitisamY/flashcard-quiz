@@ -10,6 +10,12 @@ export function useAppFunctions() {
   const [minutes, setMinutes] = useState(10);
   const [seconds, setSeconds] = useState(0);
   const [timesUp, setTimesUp] = useState(false);
+  const [info, setInfo] = useState(false);
+  const [resultData, setResultData] = useState([]);
+
+  const handleInfoClick = () => {
+    setInfo(!info);
+  };
 
   const handleBeforeUnload = () => {
     // Remove the 'topic' from local storage when the page is refreshed
@@ -65,7 +71,7 @@ export function useAppFunctions() {
   }, []);
 
   const startTimer = () => {
-    setMinutes(10);
+    setMinutes(1);
     setSeconds(0);
     setTimesUp(false);
   };
@@ -129,8 +135,9 @@ export function useAppFunctions() {
   };
 
   const handleOutsideClick = (event) => {
-    if (event.target.id === 'terms' && terms) {
+    if (event.target.id === 'terms' && terms || event.target.id === 'info' && info) {
       setTerms(false);
+      setInfo(false);
     }
   };
 
@@ -151,21 +158,48 @@ export function useAppFunctions() {
     };
   };
 
+  const handleResultData = (score, topic) => {
+    const result = {
+      score,
+      topic,
+    };
+    setResultData([...resultData, result]);
+    setIsLoading(true);
+
+    const loadingTimeout = setTimeout(() => {
+      setIsLoading(false);
+
+      localStorage.removeItem('topic');
+      setTopic('');
+      setShowContent(true);
+      setSubject(false);
+      startTimer(); // Reset the timer when leaving the quiz
+    }, 2000);
+
+    return () => {
+      clearTimeout(loadingTimeout);
+    };
+  }
+
   return {
     userName,
     showContent,
     terms,
+    info,
     topic,
     subject,
     isLoading,
     minutes,
     seconds,
     timesUp,
+    resultData,
     handleNameSubmit,
     handleTermsSubmit,
+    handleInfoClick,
     handleLogout,
     handleLeaveQuiz,
     handleOutsideClick,
     handleTopicSubmit,
+    handleResultData,
   };
 }

@@ -14,52 +14,26 @@ export default function App() {
     userName,
     showContent,
     terms,
+    info,
     topic,
     subject,
     isLoading,
     minutes,
     seconds,
     timesUp,
-    quizResult,
+    resultData,
     handleNameSubmit,
     handleTermsSubmit,
+    handleInfoClick,
     handleLogout,
     handleLeaveQuiz,
     handleOutsideClick,
     handleTopicSubmit,
-    handleSaveResult,
+    handleResultData,
   } = useAppFunctions();
-
-  // const [minutes, setMinutes] = useState(10);
-  // const [seconds, setSeconds] = useState(0);
-  // const [timesUp, setTimesUp] = useState(false);
-
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     if (minutes === 0 && seconds === 0) {
-  //         clearInterval(intervalId);
-  //         setTimesUp(true);
-  //       } else {
-  //         if (seconds === 0) {
-  //           setMinutes((prevMinutes) => prevMinutes - 1);
-  //           setSeconds(59);
-  //         } else {
-  //           setSeconds((prevSeconds) => prevSeconds - 1);
-  //         }
-  //       }
-  //   }, 1000);
-
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
-  // }, [minutes, seconds]);
 
   const filteredFlashcards = QUESTIONS.filter((flashcard) => flashcard.topic === topic);
   
-  const handleFlashcardSubmit = () => {
-    // Handle flashcard submission logic here
-    // You might want to track user answers, calculate score, etc.
-  };
   return (
     <>
       {isLoading ? (
@@ -81,7 +55,7 @@ export default function App() {
                   } 
                     subject={<h2>{topic}</h2>}
               >
-                  <Flashcard flashcards={filteredFlashcards} timer={timesUp} />
+                  <Flashcard flashcards={filteredFlashcards} timer={timesUp} handleResultData={handleResultData} />
               </Content>
               ) : filteredFlashcards.length > 0 ? (
                 <Content
@@ -94,7 +68,7 @@ export default function App() {
                   </>} 
                     subject={<h2>{topic}</h2>}
               >
-                  <Flashcard flashcards={filteredFlashcards} handleLeaveQuiz={handleLeaveQuiz} />
+                  <Flashcard flashcards={filteredFlashcards} handleLeaveQuiz={handleLeaveQuiz} handleResultData={handleResultData} />
               </Content>
               ) : (
                 <Content
@@ -111,13 +85,11 @@ export default function App() {
                   greeting={<h1>{`Welcome, ${userName}!`}</h1>}
                   heading={<h2>Select a topic to get started</h2>}
                   handleLogout={handleLogout}
+                  info={info}
+                  handleInfoClick={handleInfoClick}
+                  handleOutsideClick={handleOutsideClick}
               >
-                <div id="tag-holder">
-                  <div className="tags blue">Every quiz is of 10:00 minutes.</div>
-                  <div className="tags blue">Refreshing the page will end the quiz.</div>
-                  <div className="tags blue">Quiz's results are not saved as there is no database to keep track.</div>
-                </div>
-                <Topic topics={TOPICS_DATA} onTopicClick={handleTopicSubmit} />
+                <Topic topics={TOPICS_DATA} onTopicClick={handleTopicSubmit} resultData={resultData} />
               </Content>
             )
           ) : (

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 
-export default function Flashcard({ flashcards, timer, handleLeaveQuiz }) {
+export default function Flashcard({ flashcards, timer, handleLeaveQuiz, handleResultData }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [result, setResult] = useState(false);
@@ -82,7 +82,7 @@ export default function Flashcard({ flashcards, timer, handleLeaveQuiz }) {
           <div id="timeout-view">
             <h4>{`Time's up!`}</h4>
             <h4>00:00</h4>
-            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={() => handleResultData((score / 10) * 100, currentFlashcard.topic)}>Submit</button>
           </div>
         </div>
       ) : !currentFlashcard ? (
@@ -106,7 +106,7 @@ export default function Flashcard({ flashcards, timer, handleLeaveQuiz }) {
                     <td><h4>{score}</h4></td>
                     <td><h4>{10 - score}</h4></td>
                     <td><h4>{(score / 10) * 100}%</h4></td>
-                    <td><button onClick={handleLeaveQuiz}>Exit</button></td>
+                    <td><button onClick={() => handleResultData((score / 10) * 100, currentFlashcard.topic)}>Exit</button></td>
                   </tr>
                 </tbody>
               </table>
