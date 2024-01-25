@@ -22,7 +22,8 @@ export default function Content({
                         <ol>
                             <li>Every quiz is of 10:00 minutes.</li>
                             <li>Refreshing the page will end the quiz.</li>
-                            <li>{`Quiz's results are not saved as there is no database to keep track.`}</li>
+                            <li>You can take the same quiz multiple times.</li>
+                            <li>Your latest score will be displayed.</li>
                         </ol>
                     </div>
                     </div>
