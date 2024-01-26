@@ -161,7 +161,6 @@ body {
     transition: 0.5s;
 }
     
-
 #terms {
     position: fixed;
     top: 0;
@@ -179,6 +178,16 @@ body {
     background-color: transparent; 
     animation: SlideIn ease-in-out;
     animation-duration: 0.5s;
+}
+
+@media screen and (max-width: 992px) {
+    #login {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
 }
 
 #info {
