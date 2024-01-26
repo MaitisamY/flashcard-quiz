@@ -104,6 +104,9 @@ export default function App() {
           )}
         </>
       )}
+      <div id="less-than-300-px">
+          <p>Sorry! We do not support mobile devices less than 300px wide.</p>
+      </div>
     </>
   );
 }

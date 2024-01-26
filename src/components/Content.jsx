@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import Icon from '../assets/logo.png'
+import { BsQuestionLg, BsBoxArrowRight, BsBoxArrowUpRight } from 'react-icons/bs'
 export default function Content({ 
     greeting, 
     heading, 
@@ -22,26 +23,27 @@ export default function Content({
                         <ol>
                             <li>Every quiz is of 10:00 minutes.</li>
                             <li>Refreshing the page will end the quiz.</li>
-                            <li>You can take the same quiz multiple times.</li>
+                            <li>You can re-take the same quiz multiple times.</li>
                             <li>Your latest score will be displayed.</li>
+                            <li>Your correct answers will be counted upon time up.</li>
                         </ol>
                     </div>
                     </div>
                 )
             }
             <header>
-                <img alt="Icon of flashcard quiz app" src={Icon} width={80} />
+                <img alt="Icon of flashcard quiz app" src={Icon} />
                 <div></div>
               <ul>
                 { 
                     handleLeaveQuiz ? 
-                    <li><a onClick={handleLeaveQuiz}>Leave Quiz</a></li> 
+                    <li title="Leave Quiz"><a onClick={handleLeaveQuiz}><BsBoxArrowUpRight size={25} /></a></li> 
                     : subject ? 
                     <li>{subject}</li>
                     :
                     <>
-                        <li><a onClick={handleInfoClick}>Info</a></li>
-                        <li><a onClick={handleLogout}>Logout</a></li>
+                        <li title="Info"><a onClick={handleInfoClick}><BsQuestionLg size={25} /></a></li>
+                        <li className="margin-left" title="Logout"><a onClick={handleLogout}><BsBoxArrowRight size={25} /></a></li>
                     </>
                 }
               </ul>
