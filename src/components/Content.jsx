@@ -12,6 +12,11 @@ export default function Content({
     handleOutsideClick,
     children 
 }) {
+
+    const gotoMyPortfolio = () => {
+        window.open("https://github.com/MaitisamY/", "_blank");
+    }
+
     return (
         <>
             {
@@ -54,7 +59,10 @@ export default function Content({
                 {children && children}
             </main>
             <footer>
-                <p>ⓒ {new Date().getFullYear()}, Flashcard Quiz</p>
+                <p>&copy; {new Date().getFullYear()}, Flashcard Quiz</p>
+                <span>Made with ❤️ by 
+                    <a target="_blank" rel="noopener noreferrer" onClick={gotoMyPortfolio}> Aitisam Yaseen</a>
+                </span>
             </footer>
         </>
     )

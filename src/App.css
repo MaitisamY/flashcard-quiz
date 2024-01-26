@@ -844,14 +844,42 @@ main #timer {
 }
 
 footer {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
+    gap: 3px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+footer p {
+    padding: 0;
+    margin: 0;
     color: #fff000;
     font-size: 18px;
-    padding: 20px 0;
     font-family: 'Rowdies', sans-serif;
+}
+
+footer span {
+    padding: 0;
+    margin: 0;
+    color: #ffee00bb;
+    font-size: 14px;
+    font-family: 'Rowdies', sans-serif;
+}
+
+footer span a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+footer span a:hover {
+    color: #fff000;
+    transition: 0.5s;
 }
 
 #less-than-300-px {
