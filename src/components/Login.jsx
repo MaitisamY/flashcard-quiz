@@ -24,7 +24,7 @@ export default function Login({
         <>
             <div id="login">
                 <div id="intro">
-                    <img alt="Icon of flashcard quiz app" src={Icon} width={100} />
+                    <img alt="Icon of flashcard quiz app" src={Icon} />
                     <h1>Flashcard Quiz</h1>
                 </div>
                 <form id="name-getter" onSubmit={handleNameSubmit}>
