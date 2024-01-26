@@ -28,7 +28,7 @@ body {
 }
 
 #login {
-    height: 100vh;
+    height: 94vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,14 +123,44 @@ body {
     transition: 0.5s;
 }
 
-#fixed-footer {
-    position: fixed;
-    bottom: 10px;
-    text-align: center;
+#login-footer {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    text-transform: uppercase;
+}
+
+#login-footer p {
+    padding: 0;
+    margin: 0;
     color: #fff000;
     font-size: 18px;
     font-family: 'Rowdies', sans-serif;
 }
+
+#login-footer span {
+    padding: 0;
+    margin: 0;
+    color: #ffee00bb;
+    font-size: 14px;
+    font-family: 'Rowdies', sans-serif;
+}
+
+#login-footer span a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#login-footer span a:hover {
+    color: #fff000;
+    transition: 0.5s;
+}
+    
 
 #terms {
     position: fixed;
@@ -762,6 +792,7 @@ main #timer {
         width: 90%;
         overflow-x: auto;
         overflow-y: hidden;
+        align-items: flex-start;
     }
     
     #result-view table th {

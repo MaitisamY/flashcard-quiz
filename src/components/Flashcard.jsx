@@ -92,7 +92,7 @@ export default function Flashcard({ flashcards, timer, handleResultData }) {
         <div id="timesUp">
           <div id="timeout-view">
             <h4>{`Time's up!`}</h4>
-            <h4>00:00</h4>
+            <h4>{(score / 10) * 100}%</h4>
             <button onClick={() => handleResultData((score / 10) * 100, currentFlashcard.topic)}>Submit</button>
           </div>
         </div>

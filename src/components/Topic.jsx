@@ -12,7 +12,7 @@ export default function Topic({ topics, onTopicClick, resultData }) {
                     resultData.map((result, index) => (
                         result.topic === topic.heading && (
                             <div key={index} id="tag-container">
-                                <span>Click to take the quiz again</span>
+                                <span>Click to re-take the quiz</span>
                                 <p key={index} id="tag">{`${result.score}%`}</p>
                             </div>
                         )
