@@ -79,7 +79,7 @@ export function useAppFunctions() {
   }, []);
 
   const startTimer = () => {
-    setMinutes(1);
+    setMinutes(10);
     setSeconds(0);
     setTimesUp(false);
   };
