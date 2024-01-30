@@ -13,9 +13,9 @@ export default function Content({
     children 
 }) {
 
-    const gotoMyPortfolio = () => {
-        window.open("https://github.com/MaitisamY/", "_blank");
-    }
+    // const gotoMyPortfolio = () => {
+    //     window.open("https://github.com/MaitisamY/", "_blank");
+    // }
 
     return (
         <>
@@ -60,9 +60,9 @@ export default function Content({
             </main>
             <footer>
                 <p>&copy; {new Date().getFullYear()}, Flashcard Quiz</p>
-                <span>Made with ❤️ by 
+                {/* <span>Made with ❤️ by 
                     <a target="_blank" rel="noopener noreferrer" onClick={gotoMyPortfolio}> Aitisam Yaseen</a>
-                </span>
+                </span> */}
             </footer>
         </>
     )
