@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -23,10 +24,5 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
     "vite": "^5.0.0"
-  },
-  "description": "Flashcard Quiz Application with React and Vite",
-  "main": "vite.config.js",
-  "keywords": [],
-  "author": "Aitisam Yaseen",
-  "license": "ISC"
+  }
 }
