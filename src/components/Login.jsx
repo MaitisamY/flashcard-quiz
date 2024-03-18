@@ -24,13 +24,18 @@ export default function Login({
         <>
             <div id="login">
                 <div id="intro">
-                    <img alt="Icon of flashcard quiz app" src={Icon} />
                     <h1>Flashcard Quiz</h1>
                 </div>
                 <form id="name-getter" onSubmit={handleNameSubmit}>
                     <label>
                     Enter your name
-                    <input type="text" name="name" value={user} onChange={handleUsenameChange} />
+                    <input 
+                        type="text" 
+                        name="name" 
+                        value={user} 
+                        onChange={handleUsenameChange}
+                        placeholder="E.g. Aitisam Yaseen"
+                    />
                     </label>
                     {userNameError && <p>{userNameError}</p>}
                     <button type="submit">Submit</button>

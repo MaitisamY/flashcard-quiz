@@ -19,10 +19,16 @@
     }
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #292916;
+    background-color: transparent;
     box-sizing: border-box;
     overflow-x: hidden;
 }
@@ -49,7 +55,7 @@ body {
     font-size: 36px;
     font-family: 'Rowdies', sans-serif;
     margin: 0;
-    color: #fff000;
+    color: #3a3a26;
     text-transform: uppercase;
 }
 
@@ -59,15 +65,32 @@ body {
     padding: 30px;
     font-size: 30px;
     text-align: center;
-    background-color: #fff000;
+    background-color: transparent;
     color: #292916;
     border: none;
     border-radius: 10px;
     font-family: 'Bebas Neue', sans-serif;
-    box-shadow: 0 0 10px #fff000;
+    box-shadow: 0 0 6px #fff000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-#name-getter input, 
+#name-getter input {
+    display: block;
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: transparent;
+    color: #292916;
+    border: none;
+    outline: 2px solid #696938;
+    place-self: center;
+    border-radius: 10px;
+    padding: 0px 2px;
+}
+
 #name-getter input:hover, 
 #name-getter input:focus, 
 #name-getter input:active {
@@ -76,8 +99,8 @@ body {
     font-family: 'Bebas Neue', sans-serif;
     background-color: transparent;
     color: #292916;
-    border: 2px solid #292916;
-    outline: none;
+    border: none;
+    outline: 3px solid #292916;
     place-self: center;
     border-radius: 10px;
 }
@@ -87,7 +110,6 @@ body {
     color: red;
     font-family: 'Rowdies', sans-serif;
     margin: 0;
-    margin-top: 5px;
     place-self: center;
     text-transform: uppercase;
     letter-spacing: normal;
@@ -100,18 +122,19 @@ body {
     font-size: 30px;
     font-family: 'Bebas Neue', sans-serif;
     background-color: transparent;
-    color: #292916;
-    border: 2px solid #292916;
-    outline: none;
+    color: #3a3a26;
+    border: none;
+    outline: 2px solid #696938;
     cursor: pointer;
     border-radius: 10px;
 }
 
 #name-getter button:hover {
     background-color: #292916;
-    color: #fff000;
-    border: 2px solid #292916;
-    transition: 0.5s;
+    color: #ffffff;
+    border: none;
+    outline: 3px solid #292916;
+    transition: 0.1s;
 }
 
 #name-getter a {
@@ -144,7 +167,7 @@ body {
 #login-footer p {
     padding: 0;
     margin: 0;
-    color: #fff000;
+    color: #3a3a26;
     font-size: 18px;
     font-family: 'Rowdies', sans-serif;
 }
@@ -184,6 +207,14 @@ body {
     background-color: transparent; 
     animation: SlideIn ease-in-out;
     animation-duration: 0.5s;
+}
+
+#terms ol {
+    list-style-type: decimal;
+    font-size: 20px;
+    font-family: 'Rowdies', sans-serif;
+    border-radius: 10px;
+    padding: 10px 20px;
 }
 
 @media screen and (max-width: 992px) {
@@ -227,25 +258,32 @@ body {
     animation-duration: 0.5s;
 }
 
+#info ol {
+    list-style-type: decimal;
+    font-size: 20px;
+    font-family: 'Rowdies', sans-serif;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
 #content {
     position: relative;
     margin-top: 30px;
-    background-color: #fff000;
+    background-color: #ffffff;
     padding: 40px 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #fff000;
+    box-shadow: 0 0 6px #fff000;
     overflow-y: auto;
 }
 
 #content-with-border {
     position: relative;
     margin-top: 30px;
-    background-color: #fff000;
+    background-color: #ffffff;
     padding: 40px 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #fff000;
+    box-shadow: 0 0 10px #292916;
     overflow-y: auto;
-    border: 2px solid #292916;
 }
 
 #content h1 {
@@ -271,7 +309,7 @@ body {
     top: 10px;
     right: 10px;
     background-color: #3a3a26;
-    color: #fff000;
+    color: #ffffff;
     padding: 6px 12px;
     border-radius: 50px 50px;
     text-decoration: none;
@@ -307,7 +345,7 @@ body {
     top: 10px;
     right: 10px;
     background-color: #3a3a26;
-    color: #fff000;
+    color: #ffffff;
     padding: 6px 12px;
     border-radius: 50px 50px;
     text-decoration: none;
@@ -327,14 +365,25 @@ header {
     align-items: center;
     color: #292916;
     padding: 10px 30px;
+    border-bottom: 1px solid #69693846;
 }
 
 header h1 {
     font-size: 20px;
     font-family: 'Rowdies', sans-serif;
     margin: 0;
-    color: #fff000;
+    color: #3a3a26;
     text-transform: uppercase;
+}
+
+header h1 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #3a3a26;
+}
+
+header h1 .theme-intruder {
+    text-shadow: 5px 5px 5px #fff000, -5px -5px 5px #fff000;
 }
 
 header img {
@@ -350,7 +399,6 @@ header ul {
 header li {
     font-family: 'Rowdies', sans-serif;
     text-transform: uppercase;
-    color: #fff000;
     padding: 0;
 }
 
@@ -358,9 +406,14 @@ header li.margin-left {
     margin-left: 25px;
 }
 
-header li a, header li a:hover {
+header li a {
     text-decoration: none;
     cursor: pointer;
+    color: #696938;
+}
+
+header li a:hover {
+    color: #3a3a26;
 }
 
 @media screen and (max-width: 992px) {
@@ -385,33 +438,40 @@ main {
     box-sizing: border-box;
 }
 
-main h1 {
-    font-size: 25px;
+.heading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 70%;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.heading-container h1 {
+    font-size: 20px;
     font-family: 'Rowdies', sans-serif;
     margin: 0;
-    color: #fff000;
+    color: #3a3a26;
     text-transform: uppercase;
-    padding: 10px 30px;
-    text-align: center;
 }
 
-main h2 {
-    font-size: 40px;
+.heading-container h2 {
+    font-size: 30px;
     font-family: 'Rowdies', sans-serif;
     margin: 0;
-    color: #fff000;
+    color: #3a3a26;
     text-transform: uppercase;
-    padding: 10px 30px;
-    text-align: center;
 }
 
-main h5 {
+.heading-container h5 {
     font-size: 25px;
-    color: #fff000;
+    color: #3a3a26;
     font-family: 'Rowdies', sans-serif;
 }
 
-main #timer {
+.heading-container #timer {
     width: auto;
     font-size: 20px;
     color: #292916;
@@ -444,33 +504,53 @@ main #timer {
     padding: 20px 30px;
     height: auto;
     box-sizing: border-box;
-    width: 100%;
+    width: 80%;
 }
 
 #topics .topic {
     position: relative;
-    width: 400px;
+    width: 300px;
     height: auto;
-    background-color: #fff000;
+    min-height: 180px;
+    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 0 10px #000;
+    outline: 2px solid #3a3a26;
+    box-shadow: 0 0 6px #3a3a26;
     padding: 20px;
     transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 #topics .topic:hover {
     cursor: pointer;
-    transform: scale(1.08);
+    transform: translate(0, -5px);
+    outline: 3px solid #fff000;
+    transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#topics .topic.active,
+#topics .topic.active:hover,
+#topics .topic.active:focus,
+#topics .topic.active:active {
+    cursor: default;
+    transform: translate(0, -5px);
+    outline: 3px solid #fff000;
+    transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #topics .topic h3 {
-    font-size: 25px;
+    font-size: 19px;
     font-family: 'Rowdies', sans-serif;
 }
 
 #topics .topic p {
-    font-size: 25px;
+    font-size: 19px;
     font-family: 'Bebas Neue', sans-serif;
+    margin: 10px 0;
 }
 
 @media screen and (max-width: 992px) {
@@ -503,30 +583,36 @@ main #timer {
     z-index: 3;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 15px 0 0 0;
+    align-items: flex-end;
+    padding: 15px 0 10px 0;
+    border-radius: 10px;
 }
 
-#tag-container span {
-    font-size: 20px;
-    font-family: "Rowdies", sans-serif;
-    background-color: #000FFF;
-    color: #fff000;
-    border-radius: 10px;
-    padding: 10px 20px;
+#tag-container a {
+    font-size: 18px;
+    font-family: "Bebas Neue", sans-serif;
+    background-color: #3a3a26;
+    border-radius: 50px;
+    color: #ffffff;
+    padding: 5px 30px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#tag-container p {
+    border-radius: 0 10px 0 10px;
 }
 
 #tag {
     position: absolute;
-    top: -26px;
-    right: -1px;
+    top: -10px;
+    right: -2px;
     width: fit-content;
     padding: 5px 15px;
     border-radius: 0 10px 0 10px;
     font-family: 'Rowdies', sans-serif;
     font-size: 20px;
-    background-color: #000FFF;
-    color: #fff000;
+    color: #3a3a26;
     z-index: 2;
 }
 
@@ -859,7 +945,7 @@ footer {
 footer p {
     padding: 0;
     margin: 0;
-    color: #fff000;
+    color: #3a3a26;
     font-size: 18px;
     font-family: 'Rowdies', sans-serif;
 }

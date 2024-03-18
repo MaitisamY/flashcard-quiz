@@ -78,6 +78,12 @@ export function useAppFunctions() {
     };
   }, []);
 
+  useEffect(() => {
+    if(userNameError !== null && userName.length >= 6) {
+      setUsernameError(null);
+    }
+  }, [userName, userNameError])
+
   const startTimer = () => {
     setMinutes(10);
     setSeconds(0);

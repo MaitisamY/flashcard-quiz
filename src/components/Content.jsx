@@ -37,7 +37,7 @@ export default function Content({
                 )
             }
             <header>
-                <img alt="Icon of flashcard quiz app" src={Icon} />
+                <h1><a href="/">Flashcard <span className="theme-intruder">Q</span>uiz</a></h1>
                 <div></div>
               <ul>
                 { 
@@ -54,8 +54,10 @@ export default function Content({
               </ul>
             </header>
             <main>
-                {greeting && greeting}
-                {heading && heading}
+                <div className="heading-container">
+                    {greeting && greeting}
+                    {heading && heading}
+                </div>
                 {children && children}
             </main>
             <footer>
