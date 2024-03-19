@@ -281,6 +281,7 @@ body {
         justify-content: center;
         align-items: center;
     }
+
     #intro img {
         width: 75px;
     }
@@ -289,8 +290,13 @@ body {
         font-size: 28px;
         font-family: 'Rowdies', sans-serif;
         margin: 0;
-        color: #fff000;
+        color: #3a3a26;
         text-transform: uppercase;
+    }
+
+    #name-getter {
+        width: 90%;
+        min-width: 80%;
     }
 }
 
