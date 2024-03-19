@@ -546,11 +546,17 @@ main {
     }
 
     .heading-container {
-        width: 100%;
+        width: 80%;
     }
 
     .heading-container h2 {
         font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .heading-container {
+        width: 90%;
     }
 }
 
@@ -628,19 +634,19 @@ main {
 #topics .topic .tooltip {
     position: absolute;
     top: -30px;
-    right: 0;
-    width: 100%;
+    left: 0;
+    width: auto;
     height: auto;
     border-radius: 10px;
     transform: translateX(50% + 5px + 15px);
     background-color: #ffffff;
-    outline: 1px solid #3a3a26;
+    outline: 1px solid #3a3a266e;
     color: #3a3a26;
     z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    padding: 2px 10px;
     animation: slideIn 0.3s ease-in-out, slideOut 0.3s ease-in-out;
     font-family: 'Rowdies', sans-serif;
     font-size: 14px;
@@ -649,14 +655,14 @@ main {
 #topics .topic .tooltip::after {
     content: '';
     position: absolute;
-    bottom: -10px;
-    left: 50%;
+    bottom: -7px;
+    left: 20%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #3a3a26;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #3a3a26a4;
 }
 
 #topics .topic .tooltip.show {
@@ -671,7 +677,16 @@ main {
         gap: 20px;
     }
     #topics .topic {
-        width: 40%;
+        width: 41%;
+    }
+    #topics .topic .tooltip {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 625px) {
+    #topics .topic {
+        width: 46%;
     }
 }
 
@@ -703,7 +718,7 @@ main {
 #tag-container a {
     font-size: 18px;
     font-family: "Bebas Neue", sans-serif;
-    background-color: #3a3a26;
+    background-color: #3b3b2e;
     border-radius: 50px;
     color: #ffffff;
     padding: 3px 30px;
@@ -713,6 +728,7 @@ main {
 }
 
 #tag-container a:hover {
+    background-color: #292916;
     transform: translateY(-2px);
 }
 
@@ -1109,7 +1125,7 @@ footer span a:hover {
         box-sizing: border-box;
         height: auto;
         padding: 20px;
-        color: #fff000;
+        color: #3a3a26;
         font-size: 25px;
         font-family: 'Rowdies', sans-serif;
     }
