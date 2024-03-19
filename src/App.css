@@ -19,6 +19,45 @@
     }
 }
 
+@keyframes Spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes FadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -31,6 +70,10 @@ body {
     background-color: transparent;
     box-sizing: border-box;
     overflow-x: hidden;
+}
+
+.pulsing {
+    animation: pulse 0.3s ease-in-out forwards;
 }
 
 #login {
@@ -47,6 +90,10 @@ body {
     padding: 20px;
 }
 
+#intro .theme-intruder {
+    text-shadow: 5px 5px 5px #fff000, -5px -5px 5px #fff000;
+}
+
 #intro img {
     width: 100px;
 }
@@ -60,9 +107,11 @@ body {
 }
 
 #name-getter {
+    position: relative;
     width: auto;
     height: auto;
-    padding: 30px;
+    min-width: 400px;
+    padding: 30px 60px 30px 60px;
     font-size: 30px;
     text-align: center;
     background-color: transparent;
@@ -70,39 +119,38 @@ body {
     border: none;
     border-radius: 10px;
     font-family: 'Bebas Neue', sans-serif;
-    box-shadow: 0 0 6px #fff000;
+    box-shadow: 0 0 1.5px #696938;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 0;
+}
+
+#name-getter label {
+    font-size: 22px;
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: normal;
 }
 
 #name-getter input {
-    display: block;
-    font-size: 30px;
+    width: 100%;
+    font-size: 25px;
     font-family: 'Bebas Neue', sans-serif;
     background-color: transparent;
     color: #292916;
     border: none;
     outline: 2px solid #696938;
-    place-self: center;
     border-radius: 10px;
-    padding: 0px 2px;
+    padding: 4px 0 0 2px;
+    margin: 5px 0 10px 0;
 }
 
 #name-getter input:hover, 
 #name-getter input:focus, 
 #name-getter input:active {
-    display: block;
-    font-size: 30px;
-    font-family: 'Bebas Neue', sans-serif;
-    background-color: transparent;
-    color: #292916;
-    border: none;
     outline: 3px solid #292916;
-    place-self: center;
-    border-radius: 10px;
 }
 
 #name-getter p {
@@ -110,16 +158,17 @@ body {
     color: red;
     font-family: 'Rowdies', sans-serif;
     margin: 0;
-    place-self: center;
     text-transform: uppercase;
     letter-spacing: normal;
+    animation: pulse 0.3s ease-in-out forwards;
 }
 
 #name-getter button {
     display: block;
     width: 100%;
-    margin: 10px 0 20px 0;
-    font-size: 30px;
+    margin: 15px 0 20px 0;
+    padding: 4px 0 0 0;
+    font-size: 25px;
     font-family: 'Bebas Neue', sans-serif;
     background-color: transparent;
     color: #3a3a26;
@@ -144,6 +193,7 @@ body {
     font-size: 25px;
     margin-top: 10px;
     cursor: pointer;
+    place-self: center;
 }
 
 #name-getter a:hover {
@@ -168,14 +218,14 @@ body {
     padding: 0;
     margin: 0;
     color: #3a3a26;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Rowdies', sans-serif;
 }
 
 #login-footer span {
     padding: 0;
     margin: 0;
-    color: #ffee00bb;
+    color: #22200bbb;
     font-size: 14px;
     font-family: 'Rowdies', sans-serif;
 }
@@ -183,10 +233,11 @@ body {
 #login-footer span a {
     text-decoration: underline;
     cursor: pointer;
+    color: #696938;
 }
 
 #login-footer span a:hover {
-    color: #fff000;
+    color: #3a3a26;
     transition: 0.5s;
 }
     
@@ -419,7 +470,8 @@ header li a:hover {
 @media screen and (max-width: 992px) {
     header {
         justify-content: space-around;
-        border-bottom: 1px solid rgba(255, 238, 0, 0.1);
+        border-bottom: none;
+        box-shadow: 0 0 6px #69693846;
     }
     header img {
         width: 40px;
@@ -454,7 +506,6 @@ main {
     font-family: 'Rowdies', sans-serif;
     margin: 0;
     color: #3a3a26;
-    text-transform: uppercase;
 }
 
 .heading-container h2 {
@@ -462,7 +513,6 @@ main {
     font-family: 'Rowdies', sans-serif;
     margin: 0;
     color: #3a3a26;
-    text-transform: uppercase;
 }
 
 .heading-container h5 {
@@ -486,11 +536,21 @@ main {
     main {
         padding: 0 20px;
     }
+
     main h1 {
         font-size: 15px;
     }
+
     main h2 {
         font-size: 25px;
+    }
+
+    .heading-container {
+        width: 100%;
+    }
+
+    .heading-container h2 {
+        font-size: 22px;
     }
 }
 
@@ -504,7 +564,7 @@ main {
     padding: 20px 30px;
     height: auto;
     box-sizing: border-box;
-    width: 80%;
+    width: 90%;
 }
 
 #topics .topic {
@@ -514,8 +574,7 @@ main {
     min-height: 180px;
     background-color: #ffffff;
     border-radius: 10px;
-    outline: 2px solid #3a3a26;
-    box-shadow: 0 0 6px #3a3a26;
+    box-shadow: 0 0 1.5px #696938;
     padding: 20px;
     transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
     display: flex;
@@ -528,7 +587,7 @@ main {
 #topics .topic:hover {
     cursor: pointer;
     transform: translate(0, -5px);
-    outline: 3px solid #fff000;
+    outline: 2px solid #3a3a26;
     transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -537,9 +596,22 @@ main {
 #topics .topic.active:focus,
 #topics .topic.active:active {
     cursor: default;
-    transform: translate(0, -5px);
-    outline: 3px solid #fff000;
+    transform: translate(0);
     transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#topics .topic.active.passed,
+#topics .topic.active:hover.passed,
+#topics .topic.active:focus.passed,
+#topics .topic.active:active.passed {
+    outline: 2px solid green;
+}
+
+#topics .topic.active.failed,
+#topics .topic.active:hover.failed,
+#topics .topic.active:focus.failed,
+#topics .topic.active:active.failed {
+    outline: 2px solid red;
 }
 
 #topics .topic h3 {
@@ -549,14 +621,54 @@ main {
 
 #topics .topic p {
     font-size: 19px;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Rowdies', sans-serif;
     margin: 10px 0;
+}
+
+#topics .topic .tooltip {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transform: translateX(50% + 5px + 15px);
+    background-color: #ffffff;
+    outline: 1px solid #3a3a26;
+    color: #3a3a26;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    animation: slideIn 0.3s ease-in-out, slideOut 0.3s ease-in-out;
+    font-family: 'Rowdies', sans-serif;
+    font-size: 14px;
+}
+
+#topics .topic .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #3a3a26;
+}
+
+#topics .topic .tooltip.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 992px) {
     #topics {
         padding: 30px 5px;
-        gap: 5px;
+        gap: 20px;
     }
     #topics .topic {
         width: 40%;
@@ -566,10 +678,10 @@ main {
 @media screen and (max-width: 500px) {
     #topics {
         padding: 30px 5px;
-        gap: 5px;
+        gap: 20px;
     }
     #topics .topic {
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -584,7 +696,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding: 15px 0 10px 0;
+    padding: 15px 0 5px 0;
     border-radius: 10px;
 }
 
@@ -594,9 +706,14 @@ main {
     background-color: #3a3a26;
     border-radius: 50px;
     color: #ffffff;
-    padding: 5px 30px;
+    padding: 3px 30px;
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#tag-container a:hover {
+    transform: translateY(-2px);
 }
 
 #tag-container p {
@@ -946,14 +1063,14 @@ footer p {
     padding: 0;
     margin: 0;
     color: #3a3a26;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Rowdies', sans-serif;
 }
 
 footer span {
     padding: 0;
     margin: 0;
-    color: #ffee00bb;
+    color: #22200bbb;
     font-size: 14px;
     font-family: 'Rowdies', sans-serif;
 }
@@ -961,10 +1078,11 @@ footer span {
 footer span a {
     text-decoration: underline;
     cursor: pointer;
+    color: #696938;
 }
 
 footer span a:hover {
-    color: #fff000;
+    color: #3a3a26;
     transition: 0.5s;
 }
 

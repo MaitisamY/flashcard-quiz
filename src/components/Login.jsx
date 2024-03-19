@@ -24,20 +24,18 @@ export default function Login({
         <>
             <div id="login">
                 <div id="intro">
-                    <h1>Flashcard Quiz</h1>
+                    <h1>Flashcard <span className="theme-intruder">Q</span>uiz</h1>
                 </div>
                 <form id="name-getter" onSubmit={handleNameSubmit}>
-                    <label>
-                    Enter your name
+                    <label>Enter your name</label>
                     <input 
                         type="text" 
                         name="name" 
                         value={user} 
                         onChange={handleUsenameChange}
-                        placeholder="E.g. Aitisam Yaseen"
+                        placeholder="E.g. John Doe"
                     />
-                    </label>
-                    {userNameError && <p>{userNameError}</p>}
+                    {userNameError && <p id="name-error">{userNameError}</p>}
                     <button type="submit">Submit</button>
                     <a onClick={handleTermsSubmit}>Terms of use</a>
                 </form>

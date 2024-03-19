@@ -95,8 +95,10 @@ export function useAppFunctions() {
     const enteredName = e.target.elements.name.value;
     if (enteredName === '') {
         setUsernameError('Please enter your name!')
-    } else if (enteredName.length < 6) {
-      setUsernameError('Must be 6 characters long!');
+    } else if (enteredName.length < 3) {
+      setUsernameError('Must be 3 characters long!');
+    } else if (enteredName.match(/^[0-9]+$/)) {
+      setUsernameError('Please enter a valid name!');
     } else {
         setUsernameError(null);
         setIsLoading(true);
@@ -104,7 +106,8 @@ export function useAppFunctions() {
         const loadingTimeout = setTimeout(() => {
           setIsLoading(false);
 
-          localStorage.setItem('userName', enteredName);
+          const userNameEntered = enteredName.trim();
+          localStorage.setItem('userName', userNameEntered);
           setUserName(enteredName);
           setShowContent(true);
         }, 1500);

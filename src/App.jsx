@@ -83,7 +83,7 @@ export default function App() {
             ) : (
               <Content
                   greeting={<h1>{`Welcome, ${userName}!`}</h1>}
-                  heading={<h2>Select a topic to get started</h2>}
+                  heading={<h2>Select a topic to start the quiz</h2>}
                   handleLogout={handleLogout}
                   info={info}
                   handleInfoClick={handleInfoClick}

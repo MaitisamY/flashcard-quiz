@@ -1,17 +1,35 @@
-/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useState } from 'react';
+
 export default function Topic({ topics, onTopicClick, resultData }) {
     return (
         <div id="topics">
             {topics.map((topic) => {
                 const quizResults = resultData.filter((result) => result.topic === topic.heading);
+                const passed = quizResults.some((result) => result.score >= 50);
                 const activeClass = quizResults.length > 0 ? 'active' : '';
-                
+
+                // Define tooltip visibility state for each topic
+                const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+
+                // Event handler for mouse enter
+                const handleMouseEnter = () => {
+                    setIsTooltipVisible(true);
+                };
+
+                // Event handler for mouse leave
+                const handleMouseLeave = () => {
+                    setIsTooltipVisible(false);
+                };
+
                 return (
-                    <a 
-                        key={topic.id} 
-                        className={`topic ${activeClass}`} 
-                        onClick={activeClass ? null : () => onTopicClick(topic.heading)}
+                    <a
+                        key={topic.id}
+                        className={`topic ${activeClass} ${passed ? 'passed' : 'failed'}`}
+                        onClick={activeClass ? () => {} : () => onTopicClick(topic.heading)}
+                        onMouseEnter={activeClass ? handleMouseEnter : () => {}}
+                        onMouseLeave={activeClass ? handleMouseLeave : () => {}}
                     >
                         <h3>{topic.heading}</h3>
                         <p>{topic.description}</p>
@@ -21,6 +39,17 @@ export default function Topic({ topics, onTopicClick, resultData }) {
                                 <p key={index} id="tag">{`${result.score}%`}</p>
                             </div>
                         ))}
+
+                        {/* Render tooltip only if active and tooltip is visible */}
+                        {activeClass && isTooltipVisible && (
+                            <div className="tooltip">
+                                {quizResults.length > 0 ? (
+                                    passed
+                                        ? `${topic.heading} quiz passed with ${quizResults[0].score}%`
+                                        : `${topic.heading} quiz failed with ${quizResults[0].score}%`
+                                ) : null}
+                            </div>
+                        )}
                     </a>
                 );
             })}
