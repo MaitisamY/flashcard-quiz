@@ -1,12 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from 'react';
+import { useAppFunctions } from '../AppFunctions'
 
 export default function Topic({ topics, onTopicClick, resultData }) {
+
+    const { userName } = useAppFunctions()
+
     return (
         <div id="topics">
             {topics.map((topic) => {
-                const quizResults = resultData.filter((result) => result.topic === topic.heading);
+                const quizResults = resultData.filter((result) => result.topic === topic.heading && result.username === userName);
                 const passed = quizResults.some((result) => result.score >= 50);
                 const activeClass = quizResults.length > 0 ? 'active' : '';
 

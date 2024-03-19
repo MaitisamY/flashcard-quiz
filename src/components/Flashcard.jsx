@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState } from 'react'
+import { useAppFunctions } from '../AppFunctions'
 
 export default function Flashcard({ flashcards, timer, handleResultData }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,6 +12,9 @@ export default function Flashcard({ flashcards, timer, handleResultData }) {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const currentFlashcard = flashcards[currentIndex];
   const [count, setCount] = useState(1);
+
+  const { userName } = useAppFunctions()
+
   const handleAnswerClick = (questionId, selectedIndex) => {
     setSelectedAnswers((prevSelectedAnswers) => ({
       ...prevSelectedAnswers,
@@ -93,7 +97,7 @@ export default function Flashcard({ flashcards, timer, handleResultData }) {
           <div id="timeout-view">
             <h4>{`Time's up!`}</h4>
             <h4>{(score / 10) * 100}%</h4>
-            <button onClick={() => handleResultData((score / 10) * 100, currentFlashcard.topic)}>Submit</button>
+            <button onClick={() => handleResultData(userName, (score / 10) * 100, currentFlashcard.topic)}>Submit</button>
           </div>
         </div>
       ) : !currentFlashcard ? (
@@ -118,7 +122,7 @@ export default function Flashcard({ flashcards, timer, handleResultData }) {
                     <td><h4>{score}</h4></td>
                     <td><h4>{10 - score}</h4></td>
                     <td><h4>{(score / 10) * 100}%</h4></td>
-                    <td><button onClick={() => handleResultData((score / 10) * 100, currentFlashcard.topic)}>Exit</button></td>
+                    <td><button onClick={() => handleResultData(userName, (score / 10) * 100, currentFlashcard.topic)}>Exit</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -128,19 +132,22 @@ export default function Flashcard({ flashcards, timer, handleResultData }) {
           <>
           <div id="flashcard" className={isVisible ? '' : 'hidden'}>
             <h4>Q.{count}- {currentFlashcard.question}</h4>
+            <ul>
             {currentFlashcard.answers.map((answer, index) => (
-              <div key={index}>
-                <input
-                  type="radio"
-                  id={`answer-${index}`}
-                  name={`answer-${currentFlashcard.id}`}
-                  value={index}
-                  checked={selectedAnswers[currentFlashcard.id] === index}
-                  onChange={() => handleAnswerClick(currentFlashcard.id, index)}
-                />
-                <label htmlFor={`answer-${index}`}>{answer}</label>
-              </div>
+              
+                <li key={index}>
+                  <input
+                    type="radio"
+                    id={`answer-${index}`}
+                    name={`answer-${currentFlashcard.id}`}
+                    value={index}
+                    checked={selectedAnswers[currentFlashcard.id] === index}
+                    onChange={() => handleAnswerClick(currentFlashcard.id, index)}
+                  />
+                  <label htmlFor={`answer-${index}`}>{answer}</label>
+                </li>
             ))}
+            </ul>
           </div>
           <div id="controls">
             {currentIndex > 0 && (

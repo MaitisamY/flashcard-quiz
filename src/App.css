@@ -111,6 +111,7 @@ body {
     width: auto;
     height: auto;
     min-width: 400px;
+    min-height: 300px;
     padding: 30px 60px 30px 60px;
     font-size: 30px;
     text-align: center;
@@ -121,6 +122,7 @@ body {
     font-family: 'Bebas Neue', sans-serif;
     box-shadow: 0 0 1.5px #696938;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
@@ -141,7 +143,8 @@ body {
     background-color: transparent;
     color: #292916;
     border: none;
-    outline: 2px solid #696938;
+    outline: 0.5px solid #696938;
+    box-shadow: 0 0 1.5px #696938;
     border-radius: 10px;
     padding: 4px 0 0 2px;
     margin: 5px 0 10px 0;
@@ -173,7 +176,8 @@ body {
     background-color: transparent;
     color: #3a3a26;
     border: none;
-    outline: 2px solid #696938;
+    outline: 0.5px solid #696938;
+    box-shadow: 0 0 1.5px #696938;
     cursor: pointer;
     border-radius: 10px;
 }
@@ -323,7 +327,7 @@ body {
     background-color: #ffffff;
     padding: 40px 20px;
     border-radius: 10px;
-    box-shadow: 0 0 6px #fff000;
+    box-shadow: 0 0 3px #292916;
     overflow-y: auto;
 }
 
@@ -333,13 +337,13 @@ body {
     background-color: #ffffff;
     padding: 40px 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #292916;
+    box-shadow: 0 0 3px #292916;
     overflow-y: auto;
 }
 
 #content h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Rowdies', sans-serif;
     margin: 0;
     color: #292916;
@@ -349,8 +353,8 @@ body {
 
 #content li {
     margin: 10px 0;
-    font-size: 30px;
-    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    font-family: 'Rowdies', sans-serif;
     color: #292916;
     padding: 5px;
 }
@@ -365,7 +369,7 @@ body {
     border-radius: 50px 50px;
     text-decoration: none;
     font-family: 'Rowdies', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
 }
 
@@ -375,7 +379,7 @@ body {
 
 #content-with-border h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Rowdies', sans-serif;
     margin: 0;
     color: #292916;
@@ -385,8 +389,8 @@ body {
 
 #content-with-border li {
     margin: 10px 0;
-    font-size: 30px;
-    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    font-family: 'Rowdies', sans-serif;
     color: #292916;
     padding: 5px;
 }
@@ -397,11 +401,11 @@ body {
     right: 10px;
     background-color: #3a3a26;
     color: #ffffff;
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: 50px 50px;
     text-decoration: none;
     font-family: 'Rowdies', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
 }
 
@@ -451,6 +455,8 @@ header li {
     font-family: 'Rowdies', sans-serif;
     text-transform: uppercase;
     padding: 0;
+    margin: 0;
+    font-size: 14px;
 }
 
 header li.margin-left {
@@ -479,7 +485,7 @@ header li a:hover {
 }
 
 main {
-    min-height: 75vh;
+    min-height: 88vh;
     height: auto;
     padding: 0 30px;
     display: flex;
@@ -519,13 +525,14 @@ main {
     font-size: 25px;
     color: #3a3a26;
     font-family: 'Rowdies', sans-serif;
+    place-self: center;
 }
 
 .heading-container #timer {
     width: auto;
     font-size: 20px;
-    color: #292916;
-    background-color: #fff000;
+    color: #ffffff;
+    background-color: #292916;
     border-radius: 10px;
     font-family: 'Rowdies', sans-serif;
     padding: 20px;
@@ -755,9 +762,9 @@ main {
     flex-wrap: wrap;
     height: auto;
     width: 50%;
-    background-color: #fff000;
+    background-color: transparent;
     border-radius: 10px;
-    box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 7px -5px #000;
     padding: 20px;
     margin-top: 30px;
     opacity: 1;
@@ -793,22 +800,42 @@ main {
 }
 
 #flashcard h4 {
-    font-size: 25px;
+    font-size: 20px;
     color: #292916;
     font-family: 'Rowdies', sans-serif;
 }
 
+#flashcard p:first-child {
+    margin-top: 30px;
+}
+
+#flashcard ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    margin: 20px 0 10px 0;
+    list-style-type: none;
+}
+
+#flashcard ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 #flashcard label {
-    font-size: 25px;
+    font-size: 18px;
     color: #292916;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Rowdies', sans-serif;
     cursor: pointer;
-    margin: 10px 0 10px 10px;
 }
 
 #flashcard input[type="radio"] {
     cursor: pointer;
-    margin: 10px 0 10px 0;
 }
 
 #controls {
@@ -823,18 +850,19 @@ main {
 #controls button {
     font-size: 20px;
     font-family: 'Rowdies', sans-serif;
-    background-color: #000FFF;
-    color: #fff000;
+    background-color: #ffffff;
+    color: #3a3a26;
     padding: 6px 12px;
     border-radius: 10px;
     cursor: pointer;
     border: none;
     outline: none;
     transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 0 7px -5px #000;
 }
 
 #controls button:hover {
-    background-color: rgba(0, 15, 255, 0.8);
+    box-shadow: 0 0 5px -2px #000;
 }
 
 @media screen and (max-width: 992px) {
@@ -880,10 +908,10 @@ main {
     height: auto;
     width: 40%;
     box-sizing: border-box;
-    background-color: #fff000;
+    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 0 10px #000;
-    padding: 20px;
+    box-shadow: 0 0 7px -5px #000;
+    padding: 40px; 
     margin-top: 30px;
     opacity: 1;
     transition: opacity 500ms ease-in-out; /* Adjust the duration and easing as needed */
@@ -903,7 +931,7 @@ main {
 
 #timeout-view table th {
     padding: 10px;
-    border-bottom: 1px solid rgba(41, 41, 22, 0.2);
+    border-bottom: 1px solid rgba(41, 41, 22, 0.1);
     text-align: center;
     font-size: 20px;
     font-family: 'Rowdies', sans-serif;
@@ -911,8 +939,8 @@ main {
 
 #timeout-view table td {
     padding: 10px;
-    border-right: 1px solid rgba(41, 41, 22, 0.2);
-    border-bottom: 1px solid rgba(41, 41, 22, 0.2);
+    border-right: 1px solid rgba(41, 41, 22, 0.1);
+    border-bottom: 1px solid rgba(41, 41, 22, 0.1);
     text-align: center;
     font-size: 20px;
     font-family: 'Rowdies', sans-serif;
@@ -924,27 +952,26 @@ main {
 }
 
 #timeout-view table td:first-child {
-    border-left: 1px solid rgba(41, 41, 22, 0.2);
+    border-left: 1px solid rgba(41, 41, 22, 0.1);
 }
 
 #timeout-view button {
     display: block;
-    font-size: 30px;
-    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    font-family: 'Rowdies', sans-serif;
     background-color: transparent;
     color: #292916;
-    border: 2px solid #292916;
+    border: none;
     outline: none;
     cursor: pointer;
     border-radius: 10px;
-    padding: 5px 20px 2px 20px;
+    padding: 5px 20px 5px 20px;
+    box-shadow: 0 0 7px -5px #000;
 }
 
 #timeout-view button:hover {
-    background-color: #3a3a26;
-    color: #fff000;
-    border: 2px solid #3a3a26;
-    transition: 0.5s;
+    transition: 0.1s;
+    box-shadow: 0 0 5px -2px #000;
 }
 
 @media screen and (max-width: 992px) {
@@ -964,10 +991,10 @@ main {
     height: auto;
     width: 60%;
     box-sizing: border-box;
-    background-color: #fff000;
+    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 0 10px #000;
-    padding: 20px;
+    box-shadow: 0 0 7px -5px #000;
+    padding: 40px;
     margin-top: 30px;
     opacity: 1;
     transition: opacity 500ms ease-in-out; /* Adjust the duration and easing as needed */
@@ -997,7 +1024,7 @@ main {
 
 #result-view table th {
     padding: 10px;
-    border-bottom: 1px solid rgba(41, 41, 22, 0.2);
+    border-bottom: 1px solid rgba(41, 41, 22, 0.1);
     text-align: center;
     font-size: 20px;
     font-family: 'Rowdies', sans-serif;
@@ -1005,8 +1032,8 @@ main {
 
 #result-view table td {
     padding: 10px;
-    border-right: 1px solid rgba(41, 41, 22, 0.2);
-    border-bottom: 1px solid rgba(41, 41, 22, 0.2);
+    border-right: 1px solid rgba(41, 41, 22, 0.1);
+    border-bottom: 1px solid rgba(41, 41, 22, 0.1);
     text-align: center;
     font-size: 20px;
     font-family: 'Rowdies', sans-serif;
@@ -1018,27 +1045,26 @@ main {
 }
 
 #result-view table td:first-child {
-    border-left: 1px solid rgba(41, 41, 22, 0.2);
+    border-left: 1px solid rgba(41, 41, 22, 0.1);
 }
 
 #result-view button {
     display: block;
-    font-size: 30px;
-    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    font-family: 'Rowdies', sans-serif;
     background-color: transparent;
     color: #292916;
-    border: 2px solid #292916;
+    border: none;
     outline: none;
     cursor: pointer;
     border-radius: 10px;
-    padding: 5px 20px 2px 20px;
+    padding: 5px 20px 5px 20px;
+    box-shadow: 0 0 7px -5px #000;
 }
 
 #result-view button:hover {
-    background-color: #3a3a26;
-    color: #fff000;
-    border: 2px solid #3a3a26;
-    transition: 0.5s;
+    transition: 0.1s;
+    box-shadow: 0 0 5px -2px #000;
 }
 
 @media screen and (max-width: 992px) {
@@ -1072,7 +1098,7 @@ footer {
     align-items: center;
     gap: 3px;
     text-transform: uppercase;
-    padding: 10px 0 20px 0;
+    padding: 20px 0 20px 0;
 }
 
 footer p {

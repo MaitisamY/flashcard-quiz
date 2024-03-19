@@ -97,7 +97,7 @@ export function useAppFunctions() {
         setUsernameError('Please enter your name!')
     } else if (enteredName.length < 3) {
       setUsernameError('Must be 3 characters long!');
-    } else if (enteredName.match(/^[0-9]+$/)) {
+    } else if (!enteredName.match(/^[a-zA-Z\s]+$/)) {
       setUsernameError('Please enter a valid name!');
     } else {
         setUsernameError(null);
@@ -183,19 +183,36 @@ export function useAppFunctions() {
     };
   };
 
-  const handleResultData = (score, topic) => {
-    const result = {
+  const handleResultData = (username, score, topic) => {
+    const newResult = {
+      username,
       score,
       topic,
     };
-
-    // Update state
-    setResultData((prevResultData) => [...prevResultData, result]);
-
-    // Update local storage
-    const storedResultData = JSON.parse(localStorage.getItem('resultData')) || [];
-    const updatedStoredResultData = [...storedResultData, result];
-    localStorage.setItem('resultData', JSON.stringify(updatedStoredResultData));
+    
+    // Check if the topic for the given username is already in the resultData array
+    const existingIndex = resultData.findIndex((item) => item.topic === topic && item.username === username);
+    
+    if (existingIndex !== -1) {
+      // If the topic for the given username already exists, update its score
+      const updatedResultData = [...resultData];
+      updatedResultData[existingIndex] = newResult;
+      
+      // Update state
+      setResultData(updatedResultData);
+      
+      // Update local storage
+      localStorage.setItem('resultData', JSON.stringify(updatedResultData));
+    } else {
+      // If the topic for the given username doesn't exist, add the new result
+      // Update state
+      setResultData((prevResultData) => [...prevResultData, newResult]);
+      
+      // Update local storage
+      const storedResultData = JSON.parse(localStorage.getItem('resultData')) || [];
+      const updatedStoredResultData = [...storedResultData, newResult];
+      localStorage.setItem('resultData', JSON.stringify(updatedStoredResultData));
+    }
 
     // Continue with the rest of your logic
     setIsLoading(true);
@@ -214,6 +231,7 @@ export function useAppFunctions() {
       clearTimeout(loadingTimeout);
     };
   };
+
 
   return {
     userName,

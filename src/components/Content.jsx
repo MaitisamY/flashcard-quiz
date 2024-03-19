@@ -44,7 +44,7 @@ export default function Content({
                     handleLeaveQuiz ? 
                     <li title="Leave Quiz"><a onClick={handleLeaveQuiz}><BsBoxArrowUpRight size={25} /></a></li> 
                     : subject ? 
-                    <li>{subject}</li>
+                    <li title={subject}>{subject}</li>
                     :
                     <>
                         <li title="Info"><a onClick={handleInfoClick}><BsQuestionLg size={25} /></a></li>
