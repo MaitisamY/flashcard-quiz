@@ -1,92 +1,107 @@
+/*
+    path/root/src/components/Flashcard.jsx
+    Imports:
+    ||
+    \/
+*/
+
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useAppFunctions } from '../AppFunctions'
 
+// Flashcard function
 function Flashcard({ flashcards, timer, handleResultData }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-  const [result, setResult] = useState(false);
-  const [score, setScore] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState({});
-  const currentFlashcard = flashcards[currentIndex];
-  const [count, setCount] = useState(1);
 
   const { userName } = useAppFunctions()
 
+  // Current index of the flashcard
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // isVisible 'storing whether the flashcard should be visible or not'
+  const [isVisible, setIsVisible] = useState(true);
+
+  // result 'storing whether the result should be shown or not'
+  const [result, setResult] = useState(false);
+
+  // score 'storing the score'
+  const [score, setScore] = useState(0);
+
+  // selectedAnswers 'storing the selected answers'
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+
+  // count 'storing the count'
+  const currentFlashcard = flashcards[currentIndex];
+
+  // count 'storing the count'
+  const [count, setCount] = useState(1);
+
   const handleAnswerClick = (questionId, selectedIndex) => {
-    setSelectedAnswers((prevSelectedAnswers) => ({
-      ...prevSelectedAnswers,
-      [questionId]: selectedIndex,
-    }));
+      setSelectedAnswers((prevSelectedAnswers) => ({
+        ...prevSelectedAnswers,
+        [questionId]: selectedIndex,
+      }));
   };
 
+  // Handle next button
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => prevIndex + 1);
-    setCount((prevCount) => prevCount + 1);
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+      setCount((prevCount) => prevCount + 1);
   };
 
+  // Handle previous button
   const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => prevIndex - 1);
-    setCount((prevCount) => prevCount - 1);
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+      setCount((prevCount) => prevCount - 1);
   };
 
+  // Handle submit button
   const handleSubmit = () => {
-    let correctAnswers = 0;
-  
-    // Create a copy of selectedAnswers to avoid mutating state directly
-    const selectedAnswersCopy = { ...selectedAnswers };
-  
-    // Iterate through flashcards
-    flashcards.forEach((flashcard) => {
-      const questionId = flashcard.id;
-      const correctAnswerIndex = flashcard.correctAnswer;
-  
-      // Check if the user has selected an answer for this question
-      if (selectedAnswersCopy.hasOwnProperty(questionId)) {
-        const userAnswerIndex = selectedAnswersCopy[questionId];
-  
-        // Check if the user's answer is correct
-        const isCorrect = userAnswerIndex === correctAnswerIndex;
-  
-        // Update the total correct answers
-        if (isCorrect) {
-          correctAnswers++;
+      let correctAnswers = 0;
+    
+      // Create a copy of selectedAnswers to avoid mutating state directly
+      const selectedAnswersCopy = { ...selectedAnswers };
+    
+      // Iterate through flashcards
+      flashcards.forEach((flashcard) => {
+        const questionId = flashcard.id;
+        const correctAnswerIndex = flashcard.correctAnswer;
+    
+        // Check if the user has selected an answer for this question
+        if (selectedAnswersCopy.hasOwnProperty(questionId)) {
+          const userAnswerIndex = selectedAnswersCopy[questionId];
+    
+          // Check if the user's answer is correct
+          const isCorrect = userAnswerIndex === correctAnswerIndex;
+    
+          // Update the total correct answers
+          if (isCorrect) {
+            correctAnswers++;
+          }
+    
+          // Update the selected answer to include whether it is correct or not
+          selectedAnswersCopy[questionId] = { userAnswerIndex, isCorrect };
         }
-  
-        // Update the selected answer to include whether it is correct or not
-        selectedAnswersCopy[questionId] = { userAnswerIndex, isCorrect };
-      }
-    });
-  
-    setScore(correctAnswers);
-    setResult(true);
+      });
+    
+      setScore(correctAnswers);
+      setResult(true);
   };
   
-
+  // Handle slide
   const handleSlide = (direction) => {
-    setIsVisible(false);
+      setIsVisible(false);
 
-    setTimeout(() => {
-      // Your logic to handle the next/previous flashcard
-      if (direction === 'next') {
-        handleNext();
-      } else if (direction === 'previous') {
-        handlePrevious();
-      }
+      setTimeout(() => {
+        // Logic to handle the next/previous flashcard
+        if (direction === 'next') {
+          handleNext();
+        } else if (direction === 'previous') {
+          handlePrevious();
+        }
 
-      setIsVisible(true);
-    }, 500); // Adjust the delay to match the transition duration
+        setIsVisible(true);
+      }, 500); // Adjust the delay to match the transition duration
   };
-
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  const shuffledQuestions = shuffleArray(currentFlashcard);
 
   return (
     <>

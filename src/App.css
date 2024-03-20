@@ -1,4 +1,6 @@
-/* COLORS-> Dark: #292916 , Light: #fff000 */
+/*
+    All the global styles are defined in this file
+*/
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rowdies&display=swap');
 
 @keyframes SlideIn {

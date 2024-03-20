@@ -1,7 +1,16 @@
+/*
+    path/root/src/components/Content.jsx
+    Imports:
+    ||
+    \/
+*/
+
 import PropTypes from 'prop-types'
 import Info from './Info'
 import { BsQuestionLg, BsBoxArrowRight, BsBoxArrowUpRight } from 'react-icons/bs'
 
+
+// Content function
 function Content({ 
     greeting, 
     heading, 

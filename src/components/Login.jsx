@@ -20,6 +20,8 @@ function Login({
     handleTermsSubmit, 
     handleOutsideClick 
 }) {
+
+    // Maintain the state of the user name
     const [user, setUser] = useState(userName);
     
     const handleUsenameChange = (e) => {

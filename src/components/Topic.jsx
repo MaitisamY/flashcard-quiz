@@ -1,10 +1,21 @@
+/*
+    path/root/src/components/Topic.jsx
+    Imports:
+    ||
+    \/
+*/
+
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useAppFunctions } from '../AppFunctions'
 
+// Topic function
 function Topic({ topics, onTopicClick, resultData }) {
 
     const { userName } = useAppFunctions()
+
+    // Define tooltip visibility state for each topic
+    const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
     return (
         <div id="topics">
@@ -12,9 +23,6 @@ function Topic({ topics, onTopicClick, resultData }) {
                 const quizResults = resultData.filter((result) => result.topic === topic.heading && result.username === userName);
                 const passed = quizResults.some((result) => result.score >= 50);
                 const activeClass = quizResults.length > 0 ? 'active' : '';
-
-                // Define tooltip visibility state for each topic
-                const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
                 // Event handler for mouse enter
                 const handleMouseEnter = () => {
