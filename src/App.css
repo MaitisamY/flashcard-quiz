@@ -955,7 +955,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding: 15px 0 5px 0;
+    padding: 15px 0 7px 0;
     border-radius: 10px;
 }
 
@@ -1393,18 +1393,23 @@ footer span a:hover {
         font-size: 25px;
         font-family: 'Rowdies', sans-serif;
     }
+
     #login {
         display: none;
     }
+
     #login-footer {
         display: none;
     }
+
     header {
         display: none;
     }
+
     main {
         display: none;
     }
+
     footer {
         display: none;
     }
