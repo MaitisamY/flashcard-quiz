@@ -8,8 +8,9 @@ import Flashcard from './components/Flashcard'
 import Loader from './assets/loading.gif'
 import './App.css'
 
-export default function App() {
+function App() {
   const {
+    userNames,
     userName,
     userNameError,
     showContent,
@@ -23,6 +24,7 @@ export default function App() {
     timesUp,
     resultData,
     handleNameSubmit,
+    removeUserName,
     handleTermsSubmit,
     handleInfoClick,
     handleLogout,
@@ -94,12 +96,14 @@ export default function App() {
             )
           ) : (
             <Login
+              userNames={userNames}
               userName={userName}
               userNameError={userNameError}
               terms={terms}
               handleNameSubmit={handleNameSubmit}
               handleTermsSubmit={handleTermsSubmit}
               handleOutsideClick={handleOutsideClick}
+              removeUserName={removeUserName}
             />
           )}
         </>
@@ -111,5 +115,6 @@ export default function App() {
   );
 }
 
+export default App
 
 

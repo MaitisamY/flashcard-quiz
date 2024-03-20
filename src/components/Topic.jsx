@@ -1,9 +1,8 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react-hooks/rules-of-hooks */
-import { useState } from 'react';
+import { useState } from 'react'
+import PropTypes from 'prop-types'
 import { useAppFunctions } from '../AppFunctions'
 
-export default function Topic({ topics, onTopicClick, resultData }) {
+function Topic({ topics, onTopicClick, resultData }) {
 
     const { userName } = useAppFunctions()
 
@@ -60,3 +59,11 @@ export default function Topic({ topics, onTopicClick, resultData }) {
         </div>
     );
 }
+
+Topic.propTypes = {
+    topics: PropTypes.array,
+    onTopicClick: PropTypes.func,
+    resultData: PropTypes.array
+}
+
+export default Topic

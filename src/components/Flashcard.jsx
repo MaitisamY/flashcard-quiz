@@ -1,10 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable react/prop-types */
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import { useAppFunctions } from '../AppFunctions'
 
-export default function Flashcard({ flashcards, timer, handleResultData }) {
+function Flashcard({ flashcards, timer, handleResultData }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [result, setResult] = useState(false);
@@ -165,3 +163,11 @@ export default function Flashcard({ flashcards, timer, handleResultData }) {
     </>
   );
 }
+
+Flashcard.propTypes = {
+  flashcards: PropTypes.array,
+  timer: PropTypes.string,
+  handleResultData: PropTypes.func
+}
+
+export default Flashcard

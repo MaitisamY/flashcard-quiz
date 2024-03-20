@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export function useAppFunctions() {
+  const [userNames, setUserNames] = useState([]);
   const [userName, setUserName] = useState('');
   const [userNameError, setUsernameError] = useState(null);
   const [showContent, setShowContent] = useState(false);
@@ -16,6 +17,17 @@ export function useAppFunctions() {
 
   const handleInfoClick = () => {
     setInfo(!info);
+  };
+
+  const handleTermsSubmit = () => {
+    setTerms(!terms);
+  };
+
+  const handleOutsideClick = (event) => {
+    if (event.target.id === 'terms' && terms || event.target.id === 'info' && info) {
+      setTerms(false);
+      setInfo(false);
+    }
   };
 
   const handleBeforeUnload = () => {
@@ -46,9 +58,14 @@ export function useAppFunctions() {
   }, [minutes, seconds]);
 
   useEffect(() => {
+    const storedUserNames = JSON.parse(localStorage.getItem('userNames')) || [];
     const storedUserName = localStorage.getItem('userName');
     const storedTopic = localStorage.getItem('topic');
     const storedResultData = JSON.parse(localStorage.getItem('resultData')) || [];
+
+    if(storedUserNames.length > 0) {
+      setUserNames(storedUserNames);
+    }
     
     if(storedResultData.length > 0) {
       setResultData(storedResultData);
@@ -90,37 +107,66 @@ export function useAppFunctions() {
     setTimesUp(false);
   };
 
-  const handleNameSubmit = (e) => {
-    e.preventDefault();
-    const enteredName = e.target.elements.name.value;
+  const handleNameSubmit = (enteredName) => {
     if (enteredName === '') {
-        setUsernameError('Please enter your name!')
+        setUsernameError('Please enter your name!');
+        setIsLoading(false); // Set isLoading to false immediately
     } else if (enteredName.length < 3) {
-      setUsernameError('Must be 3 characters long!');
+        setUsernameError('Must be 3 characters long!');
+        setIsLoading(false); // Set isLoading to false immediately
     } else if (!enteredName.match(/^[a-zA-Z\s]+$/)) {
-      setUsernameError('Please enter a valid name!');
+        setUsernameError('Please enter a valid name!');
+        setIsLoading(false); // Set isLoading to false immediately
     } else {
         setUsernameError(null);
         setIsLoading(true);
 
-        const loadingTimeout = setTimeout(() => {
-          setIsLoading(false);
+        const userNameEntered = enteredName.trim();
 
-          const userNameEntered = enteredName.trim();
-          localStorage.setItem('userName', userNameEntered);
-          setUserName(enteredName);
-          setShowContent(true);
-        }, 1500);
+        // Check if the user already exists
+        if (userNames.includes(userNameEntered)) {
+            // If the user exists, proceed with setting the username and updating the state
+            setTimeout(() => {
+                localStorage.setItem('userName', userNameEntered);
+                setUserName(userNameEntered);
+                setShowContent(true);
+                setIsLoading(false); // Set isLoading to false after timeout
+            }, 1500);
+        } else {
+            // If the user doesn't exist, proceed with setting the username and updating the state
+            const loadingTimeout = setTimeout(() => {
+                setIsLoading(false);
+                localStorage.setItem('userName', userNameEntered);
+                setUserName(userNameEntered);
+                setShowContent(true);
 
-        return () => {
-          clearTimeout(loadingTimeout);
-        };
+                // Update userNames state and store in local storage
+                const updatedUserNames = [...userNames, userNameEntered];
+                setUserNames(updatedUserNames);
+                localStorage.setItem('userNames', JSON.stringify(updatedUserNames));
+            }, 1500);
+
+            return () => {
+                clearTimeout(loadingTimeout);
+            };
+        }
     }
   };
 
-  const handleTermsSubmit = () => {
-    setTerms(!terms);
+  const removeUserName = (nameToRemove) => {
+    // Filter out the name to be removed from the userNames array
+    const updatedUserNames = userNames.filter(name => name !== nameToRemove);
+  
+    // Filter out the result data associated with the removed user
+    const updatedResultData = resultData.filter(result => result.username !== nameToRemove);
+    
+    // Update the userNames and resultData states and store them in local storage
+    setUserNames(updatedUserNames);
+    setResultData(updatedResultData);
+    localStorage.setItem('userNames', JSON.stringify(updatedUserNames));
+    localStorage.setItem('resultData', JSON.stringify(updatedResultData));
   };
+  
 
   const handleLogout = () => {
     setIsLoading(true);
@@ -157,13 +203,6 @@ export function useAppFunctions() {
     return () => {
       clearTimeout(loadingTimeout);
     };
-  };
-
-  const handleOutsideClick = (event) => {
-    if (event.target.id === 'terms' && terms || event.target.id === 'info' && info) {
-      setTerms(false);
-      setInfo(false);
-    }
   };
 
   const handleTopicSubmit = (clickedTopic) => {
@@ -234,6 +273,7 @@ export function useAppFunctions() {
 
 
   return {
+    userNames,
     userName,
     userNameError,
     showContent,
@@ -247,6 +287,7 @@ export function useAppFunctions() {
     timesUp,
     resultData,
     handleNameSubmit,
+    removeUserName,
     handleTermsSubmit,
     handleInfoClick,
     handleLogout,

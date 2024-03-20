@@ -1,7 +1,8 @@
-/* eslint-disable react/prop-types */
-import Icon from '../assets/logo.png'
+import PropTypes from 'prop-types'
+import Info from './Info'
 import { BsQuestionLg, BsBoxArrowRight, BsBoxArrowUpRight } from 'react-icons/bs'
-export default function Content({ 
+
+function Content({ 
     greeting, 
     heading, 
     subject, 
@@ -21,19 +22,7 @@ export default function Content({
         <>
             {
                 info && (
-                    <div id="info" onClick={handleOutsideClick}>
-                    <div id="content-with-border">
-                        <a onClick={handleInfoClick}>X</a>
-                        <h1>Info</h1>
-                        <ol>
-                            <li>Every quiz is of 10:00 minutes.</li>
-                            <li>Refreshing the page will end the quiz.</li>
-                            <li>You can re-take the same quiz multiple times.</li>
-                            <li>Your latest score will be displayed.</li>
-                            <li>Your correct answers will be counted upon time up.</li>
-                        </ol>
-                    </div>
-                    </div>
+                    <Info handleInfoClick={handleInfoClick} handleOutsideClick={handleOutsideClick} />
                 )
             }
             <header>
@@ -69,3 +58,17 @@ export default function Content({
         </>
     )
 }
+
+Content.propTypes = {
+    greeting: PropTypes.string,
+    heading: PropTypes.string,
+    subject: PropTypes.string,
+    handleLogout: PropTypes.func,
+    handleLeaveQuiz: PropTypes.func,
+    info: PropTypes.bool,
+    handleInfoClick: PropTypes.func,
+    handleOutsideClick: PropTypes.func,
+    children: PropTypes.node
+}
+
+export default Content

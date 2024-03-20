@@ -58,6 +58,25 @@
     }
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(58, 58, 38, 0.788);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #3a3a26;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -111,8 +130,9 @@ body {
     width: auto;
     height: auto;
     min-width: 400px;
+    max-width: 400px;
     min-height: 300px;
-    padding: 30px 60px 30px 60px;
+    padding: 0;
     font-size: 22px;
     text-align: center;
     background-color: transparent;
@@ -124,8 +144,47 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 0;
+}
+
+#name-getter .header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: auto;
+    padding: 20px;
+    color: #3a3a26;
+    font-size: 25px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    letter-spacing: normal;
+    border-bottom: 1px solid rgba(41, 41, 22, 0.1);
+}
+
+#name-getter .body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: auto;
+    color: #3a3a26;
+    font-size: 20px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    letter-spacing: normal;
+    padding: 0 60px 30px 60px;
 }
 
 #name-getter label {
@@ -133,6 +192,7 @@ body {
     font-family: 'Rowdies', sans-serif;
     margin: 0;
     letter-spacing: normal;
+    padding: 20px 0 5px 0;
 }
 
 #name-getter input {
@@ -145,7 +205,7 @@ body {
     outline: none;
     box-shadow: 0 0 1.5px #696938;
     border-radius: 10px;
-    padding: 4px 0 4px 2px;
+    padding: 12px 4px;
     margin: 5px 0 10px 0;
 }
 
@@ -156,6 +216,15 @@ body {
 }
 
 #name-getter p {
+    font-size: 15px;
+    color: #3a3a26;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    letter-spacing: normal;
+    padding: 10px 0;
+}
+
+#name-getter span {
     font-size: 12px;
     color: red;
     font-family: 'Rowdies', sans-serif;
@@ -165,11 +234,11 @@ body {
     animation: pulse 0.3s ease-in-out forwards;
 }
 
-#name-getter button {
+#name-getter .submit-button {
     display: block;
     width: 100%;
-    margin: 15px 0 20px 0;
-    padding: 4px 0 4px 0;
+    margin: 15px 0 10px 0;
+    padding: 12px 0;
     font-size: 18px;
     font-family: 'Rowdies', sans-serif;
     background-color: transparent;
@@ -181,7 +250,7 @@ body {
     border-radius: 10px;
 }
 
-#name-getter button:hover {
+#name-getter .submit-button:hover {
     background-color: #292916;
     color: #ffffff;
     border: none;
@@ -189,19 +258,85 @@ body {
     transition: 0.1s;
 }
 
-#name-getter a {
+#name-getter .accounts {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+}
+
+#name-getter .accounts .account-tags {
+    position: relative;
+    text-decoration: none;
+    color: #3a3a26;
+    font-family: 'Rowdies', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    place-self: center;
+    background-color: #ffffff;
+    padding: 3px 10px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 5px -2px #000;
+}
+
+#name-getter .accounts .account-tags .close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #3a3a26;
+    color: #ffffff;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.1s;
+    z-index: 1;
+    border: none;
+}
+
+#name-getter .accounts .account-tags:hover {
+    outline: none;
+    transition: 0.1s;
+}
+
+#name-getter .footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    border-top: 1px solid rgba(41, 41, 22, 0.1);
+    padding: 20px 0;
+}
+
+#name-getter .footer .terms-of-use {
     text-decoration: underline;
     color: #3a3a26;
     font-family: 'Rowdies', sans-serif;
     font-size: 16px;
-    margin-top: 10px;
     cursor: pointer;
     place-self: center;
 }
 
-#name-getter a:hover {
+#name-getter .footer .terms-of-use:hover {
     color: #292916;
-    transition: 0.5s;
+    transition: 0.1s;
 }
 
 #login-footer {
@@ -244,7 +379,72 @@ body {
     color: #3a3a26;
     transition: 0.5s;
 }
+
+@media screen and (max-width: 992px) {
+    #login {
+        height: auto;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #intro img {
+        width: 75px;
+    }
     
+    #intro h1 {
+        font-size: 28px;
+        font-family: 'Rowdies', sans-serif;
+        margin: 0;
+        color: #3a3a26;
+        text-transform: uppercase;
+    }
+
+    #name-getter {
+        min-width: 50%;
+        max-width: 60%;
+    }
+
+    #name-getter .body {
+        padding: 0 50px 30px 50px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    #name-getter {
+        min-width: 60%;
+        max-width: 70%;
+    }
+
+    #name-getter .body {
+        padding: 0 40px 30px 40px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #name-getter {
+        min-width: 70%;
+        max-width: 80%;
+    }
+
+    #name-getter .body {
+        padding: 0 30px 30px 30px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #name-getter {
+        min-width: 80%;
+        max-width: 90%;
+    }
+
+    #name-getter .body {
+        padding: 0 20px 30px 20px;
+    }
+}
+
 #terms {
     position: fixed;
     top: 0;
@@ -270,34 +470,6 @@ body {
     font-family: 'Rowdies', sans-serif;
     border-radius: 10px;
     padding: 10px 20px;
-}
-
-@media screen and (max-width: 992px) {
-    #login {
-        height: auto;
-        min-height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #intro img {
-        width: 75px;
-    }
-    
-    #intro h1 {
-        font-size: 28px;
-        font-family: 'Rowdies', sans-serif;
-        margin: 0;
-        color: #3a3a26;
-        text-transform: uppercase;
-    }
-
-    #name-getter {
-        width: 90%;
-        min-width: 80%;
-    }
 }
 
 #info {
@@ -331,10 +503,12 @@ body {
     position: relative;
     margin-top: 30px;
     background-color: #ffffff;
-    padding: 40px 20px;
+    padding: 40px 100px;
     border-radius: 10px;
     box-shadow: 0 0 3px #292916;
     overflow-y: auto;
+    max-height: 80vh;
+    max-width: 60vw;
 }
 
 #content-with-border {
@@ -347,7 +521,7 @@ body {
     overflow-y: auto;
 }
 
-#content h1 {
+#content h2 {
     text-align: center;
     font-size: 30px;
     font-family: 'Rowdies', sans-serif;
@@ -357,15 +531,57 @@ body {
     padding: 20px 0;
 }
 
+#content h3 {
+    font-size: 22px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #292916;
+    padding: 20px 0 0 0;
+}
+
+#content h4 {
+    font-size: 20px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #292916;
+    padding: 20px 0 0 0;
+}
+
+#content h5 {
+    font-size: 16px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: #292916;
+    padding: 20px 0 0 0;
+}
+
+#content h6 {
+    font-size: 18px;
+    font-family: 'Rowdies', sans-serif;
+    margin: 0;
+    color: red;
+    padding: 10px 0 10px 0;
+    font-weight: 100;
+}
+
+#content p {
+    font-size: 16px;
+    font-family: 'Rowdies', sans-serif;
+    color: #292916;
+    font-weight: 400;
+    padding: 5px;
+}
+
 #content li {
     margin: 10px 0;
     font-size: 18px;
     font-family: 'Rowdies', sans-serif;
     color: #292916;
     padding: 5px;
+    font-weight: 400;
 }
 
-#content a {
+#content .close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -379,8 +595,18 @@ body {
     cursor: pointer;
 }
 
-#content a:hover {
+#content .close:hover {
+    color: #ffffff;
     background-color: #292916;
+}
+
+#content a {
+    text-decoration: underline;
+    color: #3a3a26a4;
+}
+
+#content a:hover {
+    color: #22200bbb;
 }
 
 #content-with-border h1 {
@@ -485,8 +711,13 @@ header li a:hover {
         border-bottom: none;
         box-shadow: 0 0 6px #69693846;
     }
+
     header img {
         width: 40px;
+    }
+
+    #content {
+        padding: 20px 50px;
     }
 }
 
