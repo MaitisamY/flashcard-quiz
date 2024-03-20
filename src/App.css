@@ -95,6 +95,15 @@ body {
     animation: pulse 0.3s ease-in-out forwards;
 }
 
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-size: medium;
+    background-color: #58584821;
+    color: #292916;
+    padding: 5px 15px;
+    border-radius: 6px;
+}
+
 #login {
     height: auto;
     min-height: 92vh;
@@ -718,6 +727,12 @@ header li a:hover {
 
     #content {
         padding: 20px 50px;
+    }
+
+    #content {
+        padding: 20px;
+        overflow-y: auto;
+        max-width: 90vw;
     }
 }
 

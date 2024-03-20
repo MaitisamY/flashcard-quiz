@@ -1,8 +1,15 @@
+/*
+    path/root/src/components/Login.jsx
+    Imports:
+    ||
+    \/
+*/
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 import Terms from './Terms'
 import { BsX } from 'react-icons/bs'
 
+// Login function
 function Login({ 
     userNames,
     userName,
@@ -55,10 +62,12 @@ function Login({
                         </button>
                         
                         {
-                            userNames && (
+                            userNames && userNames.length > 0 && (
                                 <>
                                 <label>Or</label>
-                                <p>Login with one of your older ones</p>
+                                <p>
+                                    {userNames.length > 1 ? 'Login with one of your older ones' : 'Login with your older one'}
+                                </p>
                                 <div className="accounts">
                                     {userNames.map((name, index) => (
                                         <button 
@@ -85,7 +94,7 @@ function Login({
                     </div>    
                     
                     <div className="footer">
-                        <a className="terms-of-use" onClick={handleTermsSubmit}>Introduction & Terms of Use</a>
+                        <a className="terms-of-use" onClick={handleTermsSubmit}>Terms & Introduction</a>
                     </div>
                     
                 </div>
