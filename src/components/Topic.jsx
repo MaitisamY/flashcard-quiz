@@ -53,15 +53,19 @@ function Topic({ topics, onTopicClick, resultData }) {
                         ))}
 
                         {/* Render tooltip only if active and tooltip is visible */}
-                        {activeClass && isTooltipVisible && (
-                            <div className="tooltip">
-                                {quizResults.length > 0 ? (
-                                    passed
-                                        ? `${topic.heading} quiz passed with ${quizResults[0].score}%`
-                                        : `${topic.heading} quiz failed with ${quizResults[0].score}%`
-                                ) : null}
-                            </div>
-                        )}
+                        {
+                            activeClass && isTooltipVisible && (
+                                <div className="tooltip">
+                                    {
+                                        quizResults.length > 0 ? (
+                                        passed
+                                            ? `${topic.heading} quiz passed with ${quizResults[0].score}%`
+                                            : `${topic.heading} quiz failed with ${quizResults[0].score}%`
+                                        ) : null
+                                    }
+                                </div>
+                            )
+                        }
                     </a>
                 );
             })}
