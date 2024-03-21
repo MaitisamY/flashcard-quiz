@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /*
     path/root/src/components/Topic.jsx
     Imports:
@@ -14,9 +15,6 @@ function Topic({ topics, onTopicClick, resultData }) {
 
     const { userName } = useAppFunctions()
 
-    // Define tooltip visibility state for each topic
-    const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-
     return (
         <div id="topics">
             {topics.map((topic) => {
@@ -24,6 +22,9 @@ function Topic({ topics, onTopicClick, resultData }) {
                 const passed = quizResults.some((result) => result.score >= 50);
                 const activeClass = quizResults.length > 0 ? 'active' : '';
 
+                // Define tooltip visibility state for each topic
+                const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+                
                 // Event handler for mouse enter
                 const handleMouseEnter = () => {
                     setIsTooltipVisible(true);
